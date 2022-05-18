@@ -1,0 +1,29 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 110px auto;
+  grid-template-areas: 
+    "header"
+    "content";
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  grid-area: header;
+  background: rgba(var(--color-white), 0.9);
+  padding: 0 var(--spacing-md);
+  border-bottom: 4px solid rgba(var(--color-primary), 1);
+}
+
+.imageWrapper {
+  flex-basis: 25%;
+  position: relative;
+  cursor: pointer;
+}
+
+.content {
+  box-sizing: border-box;
+  grid-area: content;
+  padding: var(--spacing-md) var(--spacing-xl);
+}
