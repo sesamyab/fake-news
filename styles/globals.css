@@ -45,3 +45,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+:root {
+  /* Spacing */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.25rem;
+  --spacing-xl: 2.5rem;
+  --spacing-xxl: 3.5rem;
+
+   /* Colors */
+   --color-white: 255,255,255;
+   --color-primary: 204, 190, 218;
+}

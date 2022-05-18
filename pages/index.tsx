@@ -13,6 +13,7 @@ interface Props {
 }
 
 const HomePage: FC<Props> = ({ articles })  => {
+  console.log(articles)
     return (
       <Layout>
         <p>pepe</p>

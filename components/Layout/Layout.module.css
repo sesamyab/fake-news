@@ -8,9 +8,16 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
   grid-area: header;
+  background: rgba(var(--color-white), 0.9);
+  padding: 0 var(--spacing-xs);
+  border-bottom: 4px solid rgba(var(--color-primary), 1);
 }
 
 .content {
   grid-area: content;
+  overflow-y: auto;
+  padding: var(--spacing-xl);
 }
