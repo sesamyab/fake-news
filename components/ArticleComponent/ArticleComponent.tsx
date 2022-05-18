@@ -1,16 +1,21 @@
 import React,{FC} from 'react';
 import AnnoyingButton from '../AnnoyingButton/AnnoyingButton';
 interface Props {
-    content: string;
-    description: string;
-    image: string;
+    article: {
+        content: string;
+        description: string;
+        image: string;
+        price: number;
+        id: number;
+        currency: string;
+        title: string;
+    }
 }
 
-const ArticleComponent:FC<Props> = (props) => {
-    const { content,description,image } = props;
+const ArticleComponent:FC<Props> = ({article}) => {
     return (
         <>
-            <AnnoyingButton content={content} price={13} description={description} image={image}/>
+            <AnnoyingButton article={article} />
         </>
     );
 

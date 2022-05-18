@@ -38,30 +38,29 @@ const excerptRenderer = (excerpt:string,content:string) => {
 }
 
 const ArticlePage:FC<Props> = ({ article }) => {
-    const {title,description, image, content, author,date,excerpt} = article;
     return (
         <div className='article-page'>
-            <h1>{title}</h1>
-            <div className='article-excerpt'>{excerptRenderer(excerpt,content)}</div>
+            <h1>{article.title}</h1>
+            <div className='article-excerpt'>{excerptRenderer(article.excerpt,article.content)}</div>
             <div style={{width: '100%', height:300, position: 'relative'}}>
                 <Image
-                    alt={title}
-                    src={image}
+                    alt={article.title}
+                    src={article.image}
                     layout='fill'
                     objectFit='contain'
                 />
             </div>
             <p style={{ display: 'flex',alignItems: 'center'}}>
-                <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(content))} min
+                <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(article.content))} min
             </p>
             <hr/>
             <AuthorCard 
-                name={author} 
-                date={dateFormatter(date)}
-                description={description}
-                image={image}
+                name={article.author} 
+                date={dateFormatter(article.date)}
+                description={article.description}
+                image={article.image}
             />
-            <ArticleComponent content={content} description={description} image={image}/>
+            <ArticleComponent article={article}/>
         </div>
     )
 }
