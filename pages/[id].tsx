@@ -1,19 +1,23 @@
 import React,{FC} from 'react';
-import { GetStaticProps } from 'next';
+import { GetStaticProps,GetStaticPaths } from 'next';
 import Image from 'next/image';
 
 import readingSpeed from '../utils/readingSpeed';
 
-
-interface Props {
+interface Article {
+    id: number;
     title: string;
     imageUrl: string;
     content: string;
     authorName: string;
 }
+interface Props {
+   article: Article;
+}
 
-const ArticlePage:FC<Props> = (props) => {
-    const {title, imageUrl, content, authorName} = props;
+const ArticlePage:FC<Props> = ({ article }) => {
+    const {title, imageUrl, content, authorName} = article;
+    
     return (
         <div className='article-page'>
             <h1>{title}</h1>
@@ -32,6 +36,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
         props: { ...article }        
+    }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const res = await fetch(`http://localhost:3000/api/articles`);
+    const articles: Article[] = await res.json();
+
+    const paths = articles.map(article => ({
+        params: { id: article.id.toString() }
+    }));
+
+    return {
+        paths,
+        fallback: false
     }
 }
 
