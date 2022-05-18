@@ -58,5 +58,13 @@ table {
 
    /* Colors */
    --color-white: 255,255,255;
+   --color-black: 0,0,0;
    --color-primary: 204, 190, 218;
+
+  /* Font sizes */
+  --fs-xxs: 0.75;
+  --fs-xs: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
 }

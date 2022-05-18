@@ -8,16 +8,19 @@
 }
 
 .title {
-  margin-bottom: var(--spacing-xs);
-  color: black;
+  margin-bottom: var(--spacing-md);
+  color: rgba(var(--color-black), 1);
+  font-size: var(--fs-xl);
 }
 
 .description {
-  margin-bottom: var(--spacing-xs);
-  color: black;
+  margin-bottom: var(--spacing-md);
+  color: rgba(var(--color-black), 0.5);
+  font-size: var(--fs-xl);
 }
 
 .imageWrapper {
+  margin-bottom: var(--spacing-md);
   width: auto;
   height: 120px;
   position: relative;
