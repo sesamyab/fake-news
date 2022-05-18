@@ -3,15 +3,7 @@ import Script from 'next/script';
 import Head from 'next/head';
 
 interface Props {
-    article: {
-        content: string;
-        description: string;
-        image: string;
-        price: number;
-        id: number;
-        currency: string;
-        title: string;
-    }
+    article: Article
 }
 
 declare global {
