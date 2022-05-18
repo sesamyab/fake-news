@@ -9,6 +9,7 @@ import numberFormatter from '../utils/numberFormatter';
 import dateFormatter from '../utils/dateFormatter';
 
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
+import AuthorCard from '../components/AuthorCard/AuthorCard';
 interface Article {
     id: number;
     title: string;
@@ -38,13 +39,11 @@ const excerptRenderer = (excerpt:string,content:string) => {
 
 const ArticlePage:FC<Props> = ({ article }) => {
     const {title,description, image, content, author,date,excerpt} = article;
-    
+    console.log(content)
     return (
         <div className='article-page'>
             <h1>{title}</h1>
-            <h3>{description}</h3>
-            <h2>{excerptRenderer(excerpt,content)}</h2>
-            <p>{dateFormatter(date)}</p>
+            <div className='article-excerpt'>{excerptRenderer(excerpt,content)}</div>
             <div style={{width: '100%', height:300, position: 'relative'}}>
                 <Image
                     alt={title}
@@ -53,10 +52,17 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     objectFit='contain'
                 />
             </div>
-            <p style={{ display: 'flex',alignItems: 'center'}}><Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(content))} min</p>
+            <p style={{ display: 'flex',alignItems: 'center'}}>
+                <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(content))} min
+            </p>
             <hr/>
+            <AuthorCard 
+                name={author} 
+                date={dateFormatter(date)}
+                description={description}
+                image={image}
+            />
             <ArticleComponent content={content}/>
-            <em>{author}</em>
         </div>
     )
 }

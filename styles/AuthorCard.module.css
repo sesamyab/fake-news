@@ -1,0 +1,13 @@
+.authorCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    margin: 10px 22px;
+}
+
+.authorInfo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
