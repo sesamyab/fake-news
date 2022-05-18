@@ -24,5 +24,5 @@
 .content {
   box-sizing: border-box;
   grid-area: content;
-  padding: var(--spacing-xl) var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-xl);
 }
