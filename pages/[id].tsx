@@ -39,7 +39,6 @@ const excerptRenderer = (excerpt:string,content:string) => {
 
 const ArticlePage:FC<Props> = ({ article }) => {
     const {title,description, image, content, author,date,excerpt} = article;
-    console.log(content)
     return (
         <div className='article-page'>
             <h1>{title}</h1>
@@ -62,7 +61,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
                 description={description}
                 image={image}
             />
-            <ArticleComponent content={content}/>
+            <ArticleComponent content={content} description={description} image={image}/>
         </div>
     )
 }
@@ -70,9 +69,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const res = await fetch(`http://localhost:3000/api/articles/${params.id}`);
     const article: Article = await res.json();
-    
-    console.log(article);
-    
+        
     return {
         props: { article }        
     }
