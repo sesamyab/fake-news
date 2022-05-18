@@ -1,6 +1,7 @@
 import React,{FC} from 'react';
 import { GetStaticProps,GetStaticPaths } from 'next';
 import Image from 'next/image';
+import Icon from '../components/Icon/Icon';
 
 import readingSpeed from '../utils/readingSpeed';
 import createExcerpt from '../utils/createExcerpt';
@@ -52,7 +53,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     objectFit='contain'
                 />
             </div>
-            <p>LÄSTID: {numberFormatter(readingSpeed(content))} min</p>
+            <p style={{ display: 'flex',alignItems: 'center'}}><Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(content))} min</p>
             <hr/>
             <ArticleComponent content={content}/>
             <em>{author}</em>
