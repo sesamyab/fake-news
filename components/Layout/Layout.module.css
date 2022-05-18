@@ -18,6 +18,5 @@
 
 .content {
   grid-area: content;
-  overflow-y: auto;
-  padding: var(--spacing-xl);
+  padding: var(--spacing-xl) var(--spacing-xs);
 }

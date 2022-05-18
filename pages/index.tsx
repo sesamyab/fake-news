@@ -1,26 +1,18 @@
 import React, { FC } from "react";
 
-import { Layout } from '../components'
-
-interface Article {
-  title: string,
-  image: string,
-  description: string
-}
+import { Layout, ArticleList } from '../components'
 
 interface Props { 
   articles: Article[]
 }
 
 const HomePage: FC<Props> = ({ articles })  => {
-  console.log(articles)
-    return (
-      <Layout>
-        <p>pepe</p>
-      </Layout>
-    );
-  }
-;
+  return (
+    <Layout>
+      <ArticleList articles={articles}/>
+    </Layout>
+  );
+};
 
 export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/api/articles')
