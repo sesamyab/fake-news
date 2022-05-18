@@ -68,3 +68,12 @@ table {
   --fs-lg: 1.125rem;
   --fs-xl: 1.25rem;
 }
+
+sesamy-content-container {
+  display: none;
+}
+
+sesamy-button {
+  --color: #ffffff;
+  --background: #ff0000;
+}

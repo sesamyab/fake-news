@@ -1,5 +1,5 @@
 import React,{FC} from 'react';
-
+import AnnoyingButton from '../AnnoyingButton/AnnoyingButton';
 interface Props {
     content: string;
 }
@@ -7,10 +7,11 @@ interface Props {
 const ArticleComponent:FC<Props> = (props) => {
     const { content } = props;
     return (
-        <div
-            dangerouslySetInnerHTML={{__html: content}}
-        />
+        <>
+            <AnnoyingButton content={content} price={13}/>
+        </>
     );
+
 }
 
 export default ArticleComponent;
