@@ -19,9 +19,6 @@
 .imageWrapper {
   flex-basis: 25%;
   position: relative;
-}
-
-.logoWrapper {
   cursor: pointer;
 }
 
