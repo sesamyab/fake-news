@@ -21,6 +21,10 @@
   position: relative;
 }
 
+.logoWrapper {
+  cursor: pointer;
+}
+
 .content {
   box-sizing: border-box;
   grid-area: content;
