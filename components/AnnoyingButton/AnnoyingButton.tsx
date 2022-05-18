@@ -8,9 +8,18 @@ interface Props {
     image: string;
 }
 
+declare global {
+    namespace JSX {
+      interface IntrinsicElements {
+        'sesamy-content-container': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+        'sesamy-button-container': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+        'sesamy-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      }
+    }
+  }
+
 function AnnoyingButton(props: Props) {
     const { content, price,description,image } = props;
-    console.log(image)
     return (
         <div>
             <sesamy-content-container 
