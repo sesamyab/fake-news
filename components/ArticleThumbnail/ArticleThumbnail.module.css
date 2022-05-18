@@ -15,13 +15,12 @@
 
 .description {
   margin-bottom: var(--spacing-md);
-  color: rgba(var(--color-black), 0.5);
+  color: rgba(var(--color-black), 0.8);
   font-size: var(--fs-xl);
 }
 
 .imageWrapper {
+  height: 200px;
   margin-bottom: var(--spacing-md);
-  width: auto;
-  height: 120px;
   position: relative;
 }

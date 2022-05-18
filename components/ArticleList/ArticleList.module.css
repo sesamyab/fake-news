@@ -6,5 +6,4 @@
   column-gap: var(--spacing-sm);
   row-gap: var(--spacing-xl);
   grid-template-columns: repeat(4, 1fr);
-  padding: var(--spacing-md) var(--spacing-xl);
 }
