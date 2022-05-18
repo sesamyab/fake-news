@@ -37,3 +37,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 To see articles in the api you first have to run
 `npm run setup-db`
+
+# API structure
+
+To fetch the articles:
+`http://localhost:3000/api/articles?offset=0&limit=20`
+
+To fetch one article:
+`http://localhost:3000/api/articles/{id}`
+or
+`http://localhost:3000/api/articles/{slug}`
