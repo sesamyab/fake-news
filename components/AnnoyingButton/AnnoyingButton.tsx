@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
 
-import { PRODUCT_URL_TEST } from '../../constants'
+import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
 interface Props {
     article: Article
 }
@@ -18,17 +18,8 @@ declare global {
   }
 
 function AnnoyingButton({ article }: Props) {
-    const [productUrl, setProductUrl] = useState("");
     const { content, price, description, image, title } = article;
 
-
-    useEffect(() => {
-      const isLocalhost = window.location.host.includes("localhost");
-      const productUrl = isLocalhost ? PRODUCT_URL_TEST as string: window.location.href;
-``
-      setProductUrl(productUrl);
-    }, []);
-    
     return (
         <div>
             <Head>
@@ -41,7 +32,7 @@ function AnnoyingButton({ article }: Props) {
             <sesamy-content-container 
               show-child-count="0" 
               gradient="false"
-              item-src={productUrl}
+              item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
             >
                 <div
                     dangerouslySetInnerHTML={{__html: content}}
@@ -52,7 +43,7 @@ function AnnoyingButton({ article }: Props) {
                     text={`Buy for`}
                     price={price}
                     currency="SEK"
-                    item-src={productUrl}/>
+                    item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}/>
             </sesamy-button-container>
             <Script defer src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-content-container.min.js"/>
             <Script defer src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-button-container.min.js"/>
