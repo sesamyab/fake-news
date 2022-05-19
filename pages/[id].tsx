@@ -1,8 +1,6 @@
 import React,{FC} from 'react';
 import { GetStaticProps,GetStaticPaths } from 'next';
 import Image from 'next/image';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import styles from '../styles/Article.module.css';
 import { Layout} from '../components';
