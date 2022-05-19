@@ -15,32 +15,33 @@ interface Props {
 }
 
 const ArticlePage:FC<Props> = ({ article }) => {
-    console.log(article);
     return (
         <Layout>
             <div className={styles.articlePage}>
-            <p className={styles.topic}>{article.title}</p>
-            <h1 className={styles.title}>{article.title}</h1>
-            <div style={{width: '100%', height:450, position: 'relative'}}>
-                <Image
-                    alt={article.title}
-                    src={article.image}
-                    layout='fill'
-                    objectFit='cover'
+                <p className={styles.topic}>{article.title}</p>
+                <h1 className={styles.title}>{article.title}</h1>
+                <div style={{width: '100%', height:450, position: 'relative'}}>
+                    <Image
+                        alt={article.title}
+                        src={article.image}
+                        layout='fill'
+                        objectFit='cover'
+                    />
+                </div>
+                <div className={styles.excerpt}>{article.excerpt}</div>
+                <hr style={{width:'80%'}}/>
+                <AuthorCard 
+                    name={article.author} 
+                    date={dateFormatter(article.date)}
+                    description={article.description}
+                    image={article.image}
                 />
-            </div>
-            <div className={styles.excerpt}>{article.excerpt}</div>
-            <hr/>
-            <AuthorCard 
-                name={article.author} 
-                date={dateFormatter(article.date)}
-                description={article.description}
-                image={article.image}
-            />
-            <p style={{ display: 'flex',alignItems: 'center'}}>
-                <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(article.content))} min
-            </p>
-            <ArticleComponent article={article}/>
+                <p style={{ display: 'flex',alignItems: 'center'}}>
+                    <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(article.content))} min
+                </p>
+                <div className={styles.articleContent}>
+                    <ArticleComponent article={article}/>
+                </div>
             </div>
         </Layout>
     )

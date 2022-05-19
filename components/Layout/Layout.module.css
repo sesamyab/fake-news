@@ -25,5 +25,4 @@
 .content {
   box-sizing: border-box;
   grid-area: content;
-  padding: var(--spacing-md) var(--spacing-xl);
 }
