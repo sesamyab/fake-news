@@ -19,7 +19,7 @@ declare global {
 
 function AnnoyingButton({ article }: Props) {
     const [productUrl, setProductUrl] = useState("");
-    const { content, price,description,image, title } = article;
+    const { content, price, description, image, title } = article;
 
 
     useEffect(() => {
@@ -30,8 +30,6 @@ function AnnoyingButton({ article }: Props) {
 
       setProductUrl(productUrl);
     }, []);
-
-    console.log(productUrl);
     
     return (
         <div>
