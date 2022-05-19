@@ -3,13 +3,20 @@ import { GetStaticProps,GetStaticPaths } from 'next';
 import Image from 'next/image';
 import styles from '../styles/Article.module.css';
 
-import { Icon, Layout} from '../components';
+import { Layout} from '../components';
 import readingSpeed from '../utils/readingSpeed';
 import numberFormatter from '../utils/numberFormatter';
 import dateFormatter from '../utils/dateFormatter';
 
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faClock,
+    faAmbulance,
+    faAnchor,
+  } from "@fortawesome/free-solid-svg-icons";
 interface Props {
    article: Article;
 }
@@ -29,7 +36,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     />
                 </div>
                 <div className={styles.excerpt}>{article.excerpt}</div>
-                <hr style={{width:'80%'}}/>
+                <hr style={{width:'80%',height:'1px',color:'#ccc',border:'none',backgroundColor:'#ccc'}}/>
                 <AuthorCard 
                     name={article.author} 
                     date={dateFormatter(article.date)}
@@ -37,7 +44,11 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     image={article.image}
                 />
                 <p style={{ display: 'flex',alignItems: 'center'}}>
-                    <Icon size={24} name='clock'/> LÄSTID {numberFormatter(readingSpeed(article.content))} min
+                    <FontAwesomeIcon  
+                        icon={faClock}
+                        style={{ fontSize: 12, color: "#000",marginRight:'9px' }}
+                    />
+                    LÄSTID {numberFormatter(readingSpeed(article.content))} min
                 </p>
                 <div className={styles.articleContent}>
                     <ArticleComponent article={article}/>
