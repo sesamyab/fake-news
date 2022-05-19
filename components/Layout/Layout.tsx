@@ -10,7 +10,7 @@ const Layout: FC = ({ children }) => (
       <div className={styles.headerContent}>
         <div className={styles.logoWrapper}>
           <Link href="/">
-            <Image src="/logo.png" alt="Kvartal" width="140" height="100" />
+            <Image src="/logo.png" alt="Kvartal" layout="fill" objectFit="cover" />
           </Link>
         </div>
       </div>

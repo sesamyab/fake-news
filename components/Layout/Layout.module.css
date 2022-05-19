@@ -10,11 +10,7 @@
 .header {
   grid-area: header;
   background: rgba(var(--color-white), 0.9);
-  padding: 0 var(--spacing-md);
   border-bottom: 4px solid rgba(var(--color-primary), 1);
-  position: fixed;
-  width: 100%;
-  z-index: 2;
 }
 
 .headerContent {
@@ -22,12 +18,15 @@
   align-items: center;
   max-width: var(--max-width-desktop);
   margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--spacing-xl);
 }
 
 .logoWrapper {
-  flex-basis: 25%;
   position: relative;
   cursor: pointer;
+  flex-basis: 15%;
+  height: 100%;
 }
 
 
@@ -36,3 +35,25 @@
   grid-area: content;
 }
 
+
+/* Small desktop */
+@media (max-width: 1024px) {
+  .header {
+    max-width: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-rows: 80px auto;
+  }
+
+  .headerContent {
+    padding: 0 var(--spacing-md);
+  }
+
+  .logoWrapper {
+    flex-basis: 25%;
+  }
+}
