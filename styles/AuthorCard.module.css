@@ -1,0 +1,27 @@
+.authorCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 22px;
+    max-width: 80%;
+}
+
+.authorInfo{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    line-height: 1.5;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    color: #8a3a67;
+}
+
+.authorDescription{
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    width: 100%;
+    margin: 10px 0;
+}

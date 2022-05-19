@@ -1,0 +1,39 @@
+.topic{
+    margin-top: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: 'Open Sans', serif;
+    width: 80%;
+    line-height: 1.6em;
+    border-bottom: 2px solid #000;
+}
+
+.title{
+    font-size: 3em;
+    margin: 30px 0;
+    font-weight: 300;
+    width: 80%;
+    font-family: 'Play-Fair Display', serif;
+}
+
+.excerpt{
+    font-size: 1.8em;
+    font-weight: bold;
+    width: 80%;
+    font-family: 'Play-Fair Display', serif;
+    margin-top: 1.3em;
+    line-height: 1.5;
+}
+
+.articlePage{
+    flex-wrap: wrap;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.articleContent{
+    width: 80%;
+}
+
