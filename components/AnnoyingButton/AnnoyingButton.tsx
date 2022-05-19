@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
 
-import { isBrowser } from '../../utils/browser';
+import { PRODUCT_URL_TEST } from '../../constants'
 interface Props {
     article: Article
 }
@@ -24,10 +24,8 @@ function AnnoyingButton({ article }: Props) {
 
     useEffect(() => {
       const isLocalhost = window.location.host.includes("localhost");
-      const productUrl = isLocalhost ?
-        "https://news-demo-seven.vercel.app/www.cornucopia.se/2022/05/paverkanskampanjer-mot-nato-pagar":
-        window.location.href;
-
+      const productUrl = isLocalhost ? PRODUCT_URL_TEST as string: window.location.href;
+``
       setProductUrl(productUrl);
     }, []);
     
