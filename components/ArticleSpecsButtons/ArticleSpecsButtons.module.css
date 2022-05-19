@@ -1,0 +1,22 @@
+.container{
+    width: 80%;
+    margin-bottom: 100px;
+    display: flex;
+}
+
+.buttonList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button{
+    margin-right: 12px;
+    color: #a56687;
+}
+
+.button:hover{
+    color: #000;
+    cursor: pointer;
+}
