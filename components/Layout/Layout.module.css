@@ -12,6 +12,9 @@
   background: rgba(var(--color-white), 0.9);
   padding: 0 var(--spacing-md);
   border-bottom: 4px solid rgba(var(--color-primary), 1);
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .headerContent {
@@ -32,3 +35,4 @@
   box-sizing: border-box;
   grid-area: content;
 }
+
