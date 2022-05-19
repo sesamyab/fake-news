@@ -12,19 +12,20 @@ const AuthorCard: FC<Props> = (props) => {
     const { name, date, description, image } = props;
     return(
         <div className={styles.authorCard}>
-            <div style={{margin:'20px'}}>
+            <div style={{margin:'20px',borderRadius:'50%',overflow:'hidden'}}>
                 <Image
                     alt={name}
                     src={image}
-                    width={150}
-                    height={150}
-                    layout='intrinsic'
+                    width={100}
+                    height={100}
                     objectFit='cover'
                 />
             </div>
             <div className={styles.authorInfo}>
-                <h3>{name} | {date} </h3> 
-                <p className={styles.authorDescription}>some description for now</p>
+                <p>{name} | {date} </p> 
+                <p className={styles.authorDescription}>
+                    some description for now
+                </p>
             </div>
         </div>
     )

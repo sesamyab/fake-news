@@ -15,11 +15,12 @@ interface Props {
 }
 
 const ArticlePage:FC<Props> = ({ article }) => {
+    console.log(article);
     return (
         <Layout>
-            <div className='article-page'>
+            <div className={styles.articlePage}>
+            <p className={styles.topic}>{article.title}</p>
             <h1 className={styles.title}>{article.title}</h1>
-            <div className={styles.excerpt}>{article.excerpt}</div>
             <div style={{width: '100%', height:450, position: 'relative'}}>
                 <Image
                     alt={article.title}
@@ -28,6 +29,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     objectFit='cover'
                 />
             </div>
+            <div className={styles.excerpt}>{article.excerpt}</div>
             <hr/>
             <AuthorCard 
                 name={article.author} 
