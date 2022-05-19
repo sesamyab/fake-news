@@ -4,19 +4,12 @@ import Image from 'next/image';
 import styles from '../styles/Article.module.css';
 
 import { Layout} from '../components';
-import readingSpeed from '../utils/readingSpeed';
-import numberFormatter from '../utils/numberFormatter';
 import dateFormatter from '../utils/dateFormatter';
 
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faClock,
-    faAmbulance,
-    faAnchor,
-  } from "@fortawesome/free-solid-svg-icons";
+import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
 interface Props {
    article: Article;
 }
@@ -43,13 +36,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
                     description={article.description}
                     image={article.image}
                 />
-                <p style={{ display: 'flex',alignItems: 'center'}}>
-                    <FontAwesomeIcon  
-                        icon={faClock}
-                        style={{ fontSize: 12, color: "#000",marginRight:'9px' }}
-                    />
-                    LÄSTID {numberFormatter(readingSpeed(article.content))} min
-                </p>
+                <ArticleSpecsButtons content={article.content}/>
                 <div className={styles.articleContent}>
                     <ArticleComponent article={article}/>
                 </div>
