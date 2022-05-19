@@ -1,0 +1,5 @@
+.articlesWrapper {
+  padding: var(--spacing-xxl) 0;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+}

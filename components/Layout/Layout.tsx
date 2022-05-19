@@ -7,10 +7,12 @@ import styles from './Layout.module.css';
 const Layout: FC = ({ children }) => (
   <div className={styles.wrapper}>
     <header className={styles.header}>
-      <div className={styles.imageWrapper}>
-        <Link href="/">
-          <Image src="/logo.png" alt="Kvartal" width="140" height="100" />
-        </Link>
+      <div className={styles.headerContent}>
+        <div className={styles.logoWrapper}>
+          <Link href="/">
+            <Image src="/logo.png" alt="Kvartal" width="140" height="100" />
+          </Link>
+        </div>
       </div>
     </header>
 
