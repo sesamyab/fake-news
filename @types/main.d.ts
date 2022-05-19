@@ -8,4 +8,5 @@ interface Article {
   author: string;
   date:string;
   excerpt:string;
+  price: number;
 }

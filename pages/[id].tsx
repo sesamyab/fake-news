@@ -8,6 +8,7 @@ import dateFormatter from '../utils/dateFormatter';
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
+import { API_URL } from '../constants';
 interface Props {
    article: Article;
 }
@@ -44,7 +45,7 @@ const ArticlePage:FC<Props> = ({ article }) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const res = await fetch(`http://localhost:3000/api/articles/${params.id}`);
+    const res = await fetch(`${API_URL}/articles/${params.id}`);
     const article: Article = await res.json();
         
     return {
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch(`http://localhost:3000/api/articles`);
+    const res = await fetch(`${API_URL}/articles`);
     const articles: Article[] = await res.json();
 
     const paths = articles.map(article => ({

@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 
 import { Layout, ArticleList } from '../components';
-import styles from './index.module.css'
+import { API_URL } from '../constants';
+import styles from './index.module.css';
 
 interface Props { 
   articles: Article[]
@@ -18,7 +19,7 @@ const HomePage: FC<Props> = ({ articles })  => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/articles')
+  const res = await fetch(`${API_URL}/articles`)
   const articles = await res.json()
 
   return {
