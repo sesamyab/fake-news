@@ -20,28 +20,28 @@ const ArticleSpecsButtons: React.FC<Props> = ({ content, }) => {
                 <p className={styles.button}>
                         <FontAwesomeIcon  
                             icon={faClock}
-                            style={{ fontSize: 12, color: "#a56687",marginRight:'9px' }}
+                            className={styles.icon}
                         />
                         LÄSTID {numberFormatter(readingSpeed(content))} min
                 </p>
                 <p className={styles.button}>
                 <FontAwesomeIcon  
                     icon={faVolumeUp}
-                    style={{ fontSize: 12, color: "#a56687",marginRight:'9px' }}
+                    className={styles.icon}
                 />
                 SKÄRMLÄSARVÄNLIG
                 </p>
                 <p className={styles.button}>
                     <FontAwesomeIcon  
                         icon={faHeart}
-                        style={{ fontSize: 12, color: "#a56687",marginRight:'9px' }}
+                        className={styles.icon}
                     />
                     STÖD KVARTAL
                 </p>
                 <p className={styles.button}>
                     <FontAwesomeIcon  
                         icon={faPaperPlane}
-                        style={{ fontSize: 12, color:"#a56687",marginRight:'9px' }}
+                        className={styles.icon}
                     />
                     NYHETSBREV
                 </p>
