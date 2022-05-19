@@ -1,14 +1,12 @@
 import React,{FC} from 'react';
 import { GetStaticProps,GetStaticPaths } from 'next';
 import Image from 'next/image';
-import styles from '../styles/Article.module.css';
 
+import styles from '../styles/Article.module.css';
 import { Layout} from '../components';
 import dateFormatter from '../utils/dateFormatter';
-
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
-
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
 interface Props {
    article: Article;

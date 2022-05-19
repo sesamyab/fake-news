@@ -67,6 +67,8 @@ table {
   --fs-md: 1rem;
   --fs-lg: 1.125rem;
   --fs-xl: 1.25rem;
+
+  --max-width-desktop: 1160px;
 }
 
 sesamy-content-container {

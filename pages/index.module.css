@@ -1,0 +1,20 @@
+.articlesWrapper {
+  box-sizing: border-box;
+  padding: var(--spacing-xl);
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+}
+
+/* Small desktop */
+@media (max-width: 1024px) {
+  .articlesWrapper {
+    max-width: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .articlesWrapper {
+    padding: var(--spacing-md); 
+  }
+}

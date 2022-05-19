@@ -36,9 +36,11 @@ function AnnoyingButton({ article }: Props) {
                     dangerouslySetInnerHTML={{__html: content}}
                 />
             </sesamy-content-container>
-                <sesamy-button-container>
+                <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button 
-                    text={`Buy for`} 
+                    text={`Buy for`}
+                    price={price}
+                    currency="SEK"
                     item-src="https://news-demo-seven.vercel.app/www.cornucopia.se/2022/05/paverkanskampanjer-mot-nato-pagar"/>
             </sesamy-button-container>
             <Script defer src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-content-container.min.js"/>

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import { Layout, ArticleList } from '../components'
+import { Layout, ArticleList } from '../components';
+import styles from './index.module.css'
 
 interface Props { 
   articles: Article[]
@@ -9,7 +10,9 @@ interface Props {
 const HomePage: FC<Props> = ({ articles })  => {
   return (
     <Layout>
-      <ArticleList articles={articles}/>
+      <div className={styles.articlesWrapper}>
+        <ArticleList articles={articles}/>
+      </div>
     </Layout>
   );
 };
