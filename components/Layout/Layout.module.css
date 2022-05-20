@@ -1,65 +1,63 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 110px auto;
-  grid-template-areas: 
-    "header"
-    "content";
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 110px auto;
+    grid-template-areas:
+        'header'
+        'content';
 }
 
 .header {
-  grid-area: header;
-  background: rgba(var(--color-white), 0.9);
-  border-bottom: 4px solid rgba(var(--color-primary), 1);
+    grid-area: header;
+    background: rgba(var(--color-white), 0.9);
+    border-bottom: 4px solid rgba(var(--color-primary), 1);
 }
 
 .headerContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: var(--max-width-desktop);
-  margin: 0 auto;
-  height: 100%;
-  padding: 0 var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width-desktop);
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 var(--spacing-xl);
 }
 
 .logoWrapper {
-  position: relative;
-  cursor: pointer;
-  flex-basis: 15%;
-  height: 100%;
+    position: relative;
+    cursor: pointer;
+    flex-basis: 15%;
+    height: 100%;
 }
 
 .profileWrapper {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
-
 
 .content {
-  box-sizing: border-box;
-  grid-area: content;
+    box-sizing: border-box;
+    grid-area: content;
 }
-
 
 /* Small desktop */
 @media (max-width: 1024px) {
-  .header {
-    max-width: none;
-  }
+    .header {
+        max-width: none;
+    }
 }
 
 /* Tablet */
 @media (max-width: 768px) {
-  .wrapper {
-    grid-template-rows: 80px auto;
-  }
+    .wrapper {
+        grid-template-rows: 80px auto;
+    }
 
-  .headerContent {
-    padding: 0 var(--spacing-md);
-  }
+    .headerContent {
+        padding: 0 var(--spacing-md);
+    }
 
-  .logoWrapper {
-    flex-basis: 25%;
-  }
+    .logoWrapper {
+        flex-basis: 25%;
+    }
 }

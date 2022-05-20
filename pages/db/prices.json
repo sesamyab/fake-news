@@ -1,1 +1,4 @@
-[{ "articleId": 1, "amount": 10, "currency" : "SEK"}, { "articleId": 4, "amount": 3, "currency" : "EUR"}]
+[
+    { "articleId": 1, "amount": 10, "currency": "SEK" },
+    { "articleId": 4, "amount": 3, "currency": "EUR" }
+]

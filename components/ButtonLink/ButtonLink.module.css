@@ -1,5 +1,5 @@
 .wrapper {
-  display: flex;
-  align-items: center;
-  color: var(--color-black);
+    display: flex;
+    align-items: center;
+    color: var(--color-black);
 }

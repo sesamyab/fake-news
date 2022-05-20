@@ -1,17 +1,17 @@
-.container{
+.container {
     width: 80%;
     margin-bottom: 100px;
     display: flex;
 }
 
-.buttonList{
+.buttonList {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
 }
 
-.button{
+.button {
     margin-right: 20px;
     color: #a56687;
     display: flex;
@@ -19,18 +19,18 @@
     font-size: 0.8em;
 }
 
-.button:hover{
+.button:hover {
     color: #000;
     cursor: pointer;
 }
 
-.icon{
+.icon {
     font-size: 10;
-     color:inherit;
-     margin-right:9px; 
+    color: inherit;
+    margin-right: 9px;
 }
 
-.icon:hover{
+.icon:hover {
     color: inherit;
-    cursor: pointer; 
+    cursor: pointer;
 }

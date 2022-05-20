@@ -1,16 +1,15 @@
-import React,{FC} from 'react';
+import React, { FC } from 'react';
 import AnnoyingButton from '../AnnoyingButton/AnnoyingButton';
 interface Props {
-    article: Article
+    article: Article;
 }
 
-const ArticleComponent:FC<Props> = ({article}) => {
+const ArticleComponent: FC<Props> = ({ article }) => {
     return (
         <>
             <AnnoyingButton article={article} />
         </>
     );
-
-}
+};
 
 export default ArticleComponent;
