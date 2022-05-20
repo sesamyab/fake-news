@@ -9,6 +9,7 @@ import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
 import { API_URL } from '../constants';
+
 interface Props {
     article: Article;
 }
@@ -53,7 +54,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const res = await fetch(`${API_URL}/articles/${params.id}`);
+    const res = await fetch(`${API_URL}/articles/${params.slug}`);
     const article: Article = await res.json();
 
     return {
@@ -66,7 +67,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const articles: Article[] = await res.json();
 
     const paths = articles.map((article) => ({
-        params: { id: article.id.toString() },
+        params: { slug: article.slug },
     }));
 
     return {
