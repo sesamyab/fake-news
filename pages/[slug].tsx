@@ -45,6 +45,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
                     image={article.image}
                 />
                 <ArticleSpecsButtons content={article.content} />
+                
                 <div className={styles.articleContent}>
                     <ArticleComponent article={article} />
                 </div>
