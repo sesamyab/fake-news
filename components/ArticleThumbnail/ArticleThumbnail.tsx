@@ -10,7 +10,7 @@ interface Props {
 
 const ArticleThumbnail: FC<Props> = ({ article }) => (
     <li>
-        <Link href={`/${article.id}`}>
+        <Link href={`/${article.slug}`}>
             <a className={styles.wrapper}>
                 <div className={styles.imageWrapper}>
                     <Image
