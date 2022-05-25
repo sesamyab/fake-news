@@ -3,25 +3,35 @@ import Script from 'next/script';
 import Head from 'next/head';
 
 import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
+
 interface Props {
     article: Article;
+}
+
+interface SesamyContentContainerProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    gradient: string;
+}
+
+interface SesamyButtonContainerProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    imageSrc: string;
+    description: string;
+}
+
+interface SesamyButtonProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    text: string;
+    price: number;
+    currency: string;
 }
 
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'sesamy-content-container': React.DetailedHTMLProps<
-                React.HTMLAttributes<HTMLElement>,
-                HTMLElement
-            >;
-            'sesamy-button-container': React.DetailedHTMLProps<
-                React.HTMLAttributes<HTMLElement>,
-                HTMLElement
-            >;
-            'sesamy-button': React.DetailedHTMLProps<
-                React.HTMLAttributes<HTMLElement>,
-                HTMLElement
-            >;
+            'sesamy-content-container': SesamyContentContainerProps;
+            'sesamy-button-container': SesamyButtonContainerProps;
+            'sesamy-button': SesamyButtonProps;
         }
     }
 }
@@ -32,7 +42,7 @@ function AnnoyingButton({ article }: Props) {
     return (
         <div>
             <Head>
-                <meta property="sesamy:price" content={price} />
+                <meta property="sesamy:price" content={String(price)} />
                 <meta property="sesamy:currency" content="SEK" />
                 <meta property="sesamy:description" content={description} />
                 <meta property="sesamy:image" content={image} />
@@ -47,7 +57,7 @@ function AnnoyingButton({ article }: Props) {
             </sesamy-content-container>
             <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button
-                    text={`Buy for`}
+                    text="Buy For"
                     price={price}
                     currency="SEK"
                     item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
