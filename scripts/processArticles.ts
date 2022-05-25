@@ -4,6 +4,7 @@ import path from 'path';
 
 const defaultPrice = 20;
 const defaultCurrency = 'SEK';
+
 (() => {
     const articles = require('../pages/db/scrappedArticles.json');
     const prices = require('../pages/db/prices.json');
