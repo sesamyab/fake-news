@@ -11,10 +11,20 @@ import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsB
 import { API_URL } from '../constants';
 
 interface Props {
-    article: Article;
+    article: Article | null;
 }
 
 const ArticlePage: FC<Props> = ({ article }) => {
+    if (!article) {
+        return (
+            <Layout>
+                <div className={styles.articlePage}>
+                    <p>Article not found.</p>
+                </div>
+            </Layout>
+        );
+    }
+
     return (
         <Layout>
             <div className={styles.articlePage}>
@@ -45,7 +55,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
                     image={article.image}
                 />
                 <ArticleSpecsButtons content={article.content} />
-                
+
                 <div className={styles.articleContent}>
                     <ArticleComponent article={article} />
                 </div>
@@ -55,6 +65,10 @@ const ArticlePage: FC<Props> = ({ article }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    if (!params) {
+        return { props: { article: null } };
+    }
+
     const res = await fetch(`${API_URL}/articles/${params.slug}`);
     const article: Article = await res.json();
 
