@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -6,7 +6,11 @@ import { useUser } from '@auth0/nextjs-auth0';
 import ButtonLink from '../ButtonLink/ButtonLink';
 import styles from './Layout.module.css';
 
-const Layout: FC = ({ children }) => {
+interface Props {
+    children: React.ReactNode;
+}
+
+const Layout = ({ children }: Props) => {
     const { user } = useUser();
 
     return (
@@ -21,7 +25,7 @@ const Layout: FC = ({ children }) => {
 
                     {Boolean(user) ? (
                         <div className={styles.profileWrapper}>
-                            <p>Hi {user?.given_name}!</p> /
+                            <p>Hi {user?.given_name as string}! /</p>
                             <ButtonLink href="/api/auth/logout">Logout</ButtonLink>
                         </div>
                     ) : (
