@@ -8,7 +8,7 @@ import dateFormatter from '../utils/dateFormatter';
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
-import { VERCEL_URL } from '../constants';
+import { API_URL } from '../constants';
 
 interface Props {
     article: Article | null;
@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         };
     }
 
-    const res = await fetch(`${VERCEL_URL}/api/articles/${params.slug}`);
+    const res = await fetch(`${API_URL}/articles/${params.slug}`);
     const article: Article = await res.json();
 
     return {
@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch(`${VERCEL_URL}/api/articles`);
+    const res = await fetch(`${API_URL}/articles`);
     const articles: Article[] = await res.json();
 
     const paths = articles.map((article) => ({

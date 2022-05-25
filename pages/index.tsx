@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { Layout, ArticleList } from '../components';
-import { VERCEL_URL } from '../constants';
+import { API_URL } from '../constants';
 import styles from './index.module.css';
 import { GetStaticProps } from 'next';
 
@@ -20,7 +20,7 @@ const HomePage: FC<Props> = ({ articles }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const res = await fetch(`${VERCEL_URL}/api/articles`);
+    const res = await fetch(`${API_URL}/articles`);
     const articles = await res.json();
 
     return {
