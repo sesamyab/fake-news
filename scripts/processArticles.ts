@@ -4,9 +4,10 @@ import path from 'path';
 
 const defaultPrice = 20;
 const defaultCurrency = 'SEK';
+
 (() => {
-    const articles = require('../pages/db/scrappedArticles.json');
-    const prices = require('../pages/db/prices.json');
+    const articles = require('../db/scrappedArticles.json');
+    const prices = require('../db/prices.json');
     const allArticles = articles.map((a: any, i: number) => {
         const id = i + 1; // Adding an auto-incremental id enough for this demo
         a.id = id;

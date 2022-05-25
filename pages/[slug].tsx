@@ -2,19 +2,29 @@ import React, { FC } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 
+import { find, findById } from '../repositories/articles';
 import styles from '../styles/Article.module.css';
 import { Layout } from '../components';
 import dateFormatter from '../utils/dateFormatter';
 import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
-import { API_URL } from '../constants';
 
 interface Props {
-    article: Article;
+    article: Article | null;
 }
 
 const ArticlePage: FC<Props> = ({ article }) => {
+    if (!article) {
+        return (
+            <Layout>
+                <div className={styles.articlePage}>
+                    <p>Article not found.</p>
+                </div>
+            </Layout>
+        );
+    }
+
     return (
         <Layout>
             <div className={styles.articlePage}>
@@ -45,7 +55,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
                     image={article.image}
                 />
                 <ArticleSpecsButtons content={article.content} />
-                
+
                 <div className={styles.articleContent}>
                     <ArticleComponent article={article} />
                 </div>
@@ -55,8 +65,19 @@ const ArticlePage: FC<Props> = ({ article }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const res = await fetch(`${API_URL}/articles/${params.slug}`);
-    const article: Article = await res.json();
+    if (!params) {
+        return {
+            notFound: true,
+        };
+    }
+
+    const article = findById(params.slug as string);
+
+    if (!article) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: { article },
@@ -64,8 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch(`${API_URL}/articles`);
-    const articles: Article[] = await res.json();
+    const articles = find();
 
     const paths = articles.map((article) => ({
         params: { slug: article.slug },
