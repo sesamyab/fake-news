@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-
-import { Layout, ArticleList } from '../components';
-import { API_URL } from '../constants';
-import styles from './index.module.css';
 import { GetStaticProps } from 'next';
+
+import { find } from '../repositories/articles';
+import { Layout, ArticleList } from '../components';
+import styles from './index.module.css';
 
 interface Props {
     articles: Article[];
@@ -19,9 +19,8 @@ const HomePage: FC<Props> = ({ articles }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const res = await fetch(`${API_URL}/articles`);
-    const articles = await res.json();
+export const getStaticProps: GetStaticProps = async () => {
+    const articles = find();
 
     return {
         props: {
