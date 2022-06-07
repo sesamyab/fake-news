@@ -24,7 +24,7 @@ function handeLogin() {
 
 function handeLogout() {
     document.cookie = `sesamy-auth=; max-age=0;`
-    window.location.assign(`https://login.sesamy.dev/logout?returnTo=${encodeURI(`https://login.sesamy.dev/?response_type=token&client_id=fake-news&redirect_uri=${window.location.href}&scope=openid%20profile%20email&state=123456`)}`)
+    window.location.assign(`https://login.sesamy.dev/logout?returnTo=${encodeURIComponent(`https://login.sesamy.dev/?response_type=token&client_id=fake-news&redirect_uri=${window.location.href}&scope=openid%20profile%20email&state=123456`)}`)
 }
 
 const LoginButton = () => {

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 
-import ButtonLink from '../ButtonLink/ButtonLink';
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
 
@@ -26,14 +25,6 @@ const Layout = ({ children }: Props) => {
                     <div>
                         <LoginButton/>
                     </div>
-                    {Boolean(user) ? (
-                        <div className={styles.profileWrapper}>                            
-                            <p>Hi {user?.given_name as string}! /</p>
-                            <ButtonLink href="/api/auth/logout">Logout</ButtonLink>
-                        </div>
-                    ) : (
-                        <ButtonLink href="/api/auth/login">Login</ButtonLink>
-                    )}
                 </div>
             </header>
 
