@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 
 import ButtonLink from '../ButtonLink/ButtonLink';
+import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
 
 interface Props {
@@ -22,9 +23,11 @@ const Layout = ({ children }: Props) => {
                             <Image src="/logo.png" alt="Kvartal" layout="fill" objectFit="cover" />
                         </Link>
                     </div>
-
+                    <div>
+                        <LoginButton/>
+                    </div>
                     {Boolean(user) ? (
-                        <div className={styles.profileWrapper}>
+                        <div className={styles.profileWrapper}>                            
                             <p>Hi {user?.given_name as string}! /</p>
                             <ButtonLink href="/api/auth/logout">Logout</ButtonLink>
                         </div>
