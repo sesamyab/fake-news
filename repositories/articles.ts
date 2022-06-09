@@ -16,7 +16,7 @@ export function find(pagination?: Pagination): Article[] {
     const offset = pagination?.offset ?? DEFAULT_OFFSET;
     const limit = pagination?.limit ?? DEFAULT_LIMIT;
 
-    console.log(articlesDb.slice(offset, limit));
+    // console.log(articlesDb.slice(offset, limit));
 
     return articlesDb.slice(offset, limit);
 }

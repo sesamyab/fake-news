@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useUser } from '@auth0/nextjs-auth0';
 
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
@@ -11,8 +10,6 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-    const { user } = useUser();
-
     return (
         <div className={styles.wrapper}>
             <header className={styles.header}>
@@ -23,7 +20,7 @@ const Layout = ({ children }: Props) => {
                         </Link>
                     </div>
                     <div>
-                        <LoginButton/>
+                        <LoginButton />
                     </div>
                 </div>
             </header>
