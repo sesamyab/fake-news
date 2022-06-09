@@ -69,6 +69,27 @@ function getCookie(key: string) {
         .find((cookie) => cookie.key === key);
 }
 
+async function getEntitlements(token: string) {
+    const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/vault/entitlements?type=article`,
+        {
+            headers: {
+                authorization: `Bearer ${token}`,
+                accept: 'application/json',
+                useragent: navigator.userAgent,
+            },
+        }
+    );
+
+    if (!response.ok) {
+        return null;
+    }
+
+    const entitlements = await response.json();
+    console.log('Entitlements: ' + JSON.stringify(entitlements));
+    document.cookie = `sesamy-entitlements=${JSON.stringify(entitlements)}`;
+}
+
 const LoginButton = () => {
     const [user, setUser] = useState<User | null>(null);
 
@@ -93,6 +114,8 @@ const LoginButton = () => {
         const userCookie = getCookie('sesamy-user');
 
         if (tokenCookie && !user) {
+            // This shouldn't really be called here.. Just want to trigger it somewhere
+            getEntitlements(tokenCookie.value);
             if (!userCookie) {
                 getProfile(tokenCookie.value).then((user) => {
                     document.cookie = `sesamy-user=${JSON.stringify(user)}`;
