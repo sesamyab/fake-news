@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import styles from './LoginButton.module.css';
 
-const scopes = encodeURIComponent(['openid', 'vault:read'].join(' '));
+const scopes = encodeURIComponent(['openid', 'vault:self'].join(' '));
 
 interface User {
     fullName: string;
@@ -86,7 +86,6 @@ async function getEntitlements(token: string) {
     }
 
     const entitlements = await response.json();
-    console.log('Entitlements: ' + JSON.stringify(entitlements));
     document.cookie = `sesamy-entitlements=${JSON.stringify(entitlements)}`;
 }
 
