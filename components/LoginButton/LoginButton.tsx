@@ -20,7 +20,7 @@ const LoginButton = () => {
             <sesamy-login client-id="sesamy"></sesamy-login>
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-login.min.js"
+                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-login.min.js"
             />
         </div>
     );
