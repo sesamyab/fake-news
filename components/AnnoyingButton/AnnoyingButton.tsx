@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
 
@@ -67,7 +67,9 @@ async function getEntitlements() {
 function AnnoyingButton({ article }: Props) {
     const { content, price, description, image, title } = article;
 
-    getEntitlements();
+    useEffect(() => {
+        getEntitlements();
+    });
 
     return (
         <div>
