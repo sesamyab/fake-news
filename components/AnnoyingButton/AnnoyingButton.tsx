@@ -47,11 +47,17 @@ function getCookie(cName: string): string {
     return res || '';
 }
 
+function setCookie(cName: string, value: string): void {
+    let cookie = `${cName}=${value};`;
+
+    document.cookie = cookie;
+}
+
 async function getEntitlements() {
     const token = getCookie('sesamy-auth');
 
     if (token.length) {
-        const response = await fetch('https://api.sesamy.com/vault/entitlements', {
+        const response = await fetch('https://api.sesamy.com/vault/entitlements?type=article', {
             headers: {
                 authorization: `Bearer ${token}`,
             },
@@ -59,7 +65,7 @@ async function getEntitlements() {
 
         if (response.ok) {
             const body = await response.json();
-            console.log('Entitlements: ' + JSON.stringify(body));
+            setCookie('sesamy-entitlements', JSON.stringify(body));
         }
     }
 }
