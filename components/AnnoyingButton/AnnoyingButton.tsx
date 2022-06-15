@@ -36,46 +36,8 @@ declare global {
     }
 }
 
-function getCookie(cName: string): string {
-    const name = `${cName}=`;
-    const cDecoded = decodeURIComponent(document.cookie);
-    const cArr = cDecoded.split('; ');
-    let res;
-    cArr.forEach((val) => {
-        if (val.indexOf(name) === 0) res = val.substring(name.length);
-    });
-    return res || '';
-}
-
-function setCookie(cName: string, value: string): void {
-    let cookie = `${cName}=${value};`;
-
-    document.cookie = cookie;
-}
-
-async function getEntitlements() {
-    const token = getCookie('sesamy-auth');
-
-    if (token.length) {
-        const response = await fetch('https://api.sesamy.com/vault/entitlements?type=article', {
-            headers: {
-                authorization: `Bearer ${token}`,
-            },
-        });
-
-        if (response.ok) {
-            const body = await response.json();
-            setCookie('sesamy-entitlements', JSON.stringify(body));
-        }
-    }
-}
-
 function AnnoyingButton({ article }: Props) {
     const { content, price, description, image, title } = article;
-
-    useEffect(() => {
-        getEntitlements();
-    });
 
     return (
         <div>
@@ -103,15 +65,15 @@ function AnnoyingButton({ article }: Props) {
             </sesamy-button-container>
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-content-container.min.js"
+                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-content-container.min.js"
             />
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-button-container.min.js"
+                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button-container.min.js"
             />
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button/sesamy-button.min.js"
+                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button.min.js"
             />
         </div>
     );
