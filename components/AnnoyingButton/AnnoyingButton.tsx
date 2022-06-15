@@ -36,8 +36,38 @@ declare global {
     }
 }
 
+function getCookie(cName: string): string {
+    const name = `${cName}=`;
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArr = cDecoded.split('; ');
+    let res;
+    cArr.forEach((val) => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+    });
+    return res || '';
+}
+
+async function getEntitlements() {
+    const token = getCookie('sesamy-auth');
+
+    if (token.length) {
+        const response = await fetch('https://api.sesamy.com/vault/entitlements', {
+            headers: {
+                authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (response.ok) {
+            const body = await response.json();
+            console.log('Entitlements: ' + JSON.stringify(body));
+        }
+    }
+}
+
 function AnnoyingButton({ article }: Props) {
     const { content, price, description, image, title } = article;
+
+    getEntitlements();
 
     return (
         <div>
