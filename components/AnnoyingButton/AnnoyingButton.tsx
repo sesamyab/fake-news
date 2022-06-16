@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
 
@@ -49,7 +49,7 @@ function AnnoyingButton({ article }: Props) {
                 <meta property="sesamy:title" content={title} />
             </Head>
             <sesamy-content-container
-                show-child-count="0"
+                show-childs-count="0"
                 gradient="false"
                 item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
             >
