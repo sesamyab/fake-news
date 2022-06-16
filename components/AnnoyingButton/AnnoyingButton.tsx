@@ -53,7 +53,8 @@ function AnnoyingButton({ article }: Props) {
                 gradient="false"
                 item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
             >
-                <div dangerouslySetInnerHTML={{ __html: content }} />
+                {/* <div slot="preview" dangerouslySetInnerHTML={{ __html: content }} /> */}
+                <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
             <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button
