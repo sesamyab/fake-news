@@ -21,7 +21,7 @@ function AnnoyingButton({ article }: Props) {
                 <meta property="sesamy:title" content={title} />
             </Head>
             <sesamy-content-container
-                show-childs-count="0"
+                lock-mode="signedUrl"
                 item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/${slug}`}
                 pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
             >
