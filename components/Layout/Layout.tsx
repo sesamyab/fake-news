@@ -45,7 +45,7 @@ declare global {
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
             >;
-            'sesamy-purchases': React.DetailedHTMLProps<
+            'sesamy-entitlements': React.DetailedHTMLProps<
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
             >;
