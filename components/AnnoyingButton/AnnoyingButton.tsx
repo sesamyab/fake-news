@@ -8,36 +8,6 @@ interface Props {
     article: Article;
 }
 
-interface SesamyContentContainerProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    gradient?: boolean;
-    pass?: string;
-}
-
-interface SesamyButtonContainerProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    imageSrc: string;
-    description: string;
-}
-
-interface SesamyButtonProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    text: string;
-    price: number;
-    currency: string;
-    pass?: string;
-}
-
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'sesamy-content-container': SesamyContentContainerProps;
-            'sesamy-button-container': SesamyButtonContainerProps;
-            'sesamy-button': SesamyButtonProps;
-        }
-    }
-}
-
 function AnnoyingButton({ article }: Props) {
     const { content, price, description, image, title, slug } = article;
 
