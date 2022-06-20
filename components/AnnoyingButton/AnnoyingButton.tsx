@@ -10,7 +10,8 @@ interface Props {
 
 interface SesamyContentContainerProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    gradient: string;
+    gradient?: boolean;
+    pass?: string;
 }
 
 interface SesamyButtonContainerProps
@@ -24,6 +25,7 @@ interface SesamyButtonProps
     text: string;
     price: number;
     currency: string;
+    pass?: string;
 }
 
 declare global {
@@ -37,7 +39,7 @@ declare global {
 }
 
 function AnnoyingButton({ article }: Props) {
-    const { content, price, description, image, title } = article;
+    const { content, price, description, image, title, slug } = article;
 
     return (
         <div>
@@ -50,18 +52,27 @@ function AnnoyingButton({ article }: Props) {
             </Head>
             <sesamy-content-container
                 show-childs-count="0"
-                gradient="false"
-                item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
+                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/${slug}`}
+                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
             >
-                {/* <div slot="preview" dangerouslySetInnerHTML={{ __html: content }} /> */}
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
             <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button
+                    text="Subscribe"
+                    price={49}
+                    currency="SEK"
+                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
+                />
+
+                <div>Or...</div>
+
+                <sesamy-button
                     text="Buy For"
                     price={price}
                     currency="SEK"
-                    item-src={NEXT_PUBLIC_PRODUCT_URL_TEST}
+                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/${slug}`}
+                    pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
                 />
             </sesamy-button-container>
             <Script
