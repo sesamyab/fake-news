@@ -2,7 +2,7 @@ import React from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
 
-import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
+import { NEXT_PUBLIC_PRODUCT_URL_TEST, NEXT_PUBLIC_WEB_COMPONENT_BASE_URL } from '../../constants';
 
 interface Props {
     article: Article;
@@ -22,8 +22,8 @@ function AnnoyingButton({ article }: Props) {
             </Head>
             <sesamy-content-container
                 lock-mode="signedUrl"
-                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/${slug}`}
-                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
+                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
             >
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
@@ -32,7 +32,7 @@ function AnnoyingButton({ article }: Props) {
                     text="Subscribe"
                     price={49}
                     currency="SEK"
-                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
+                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
                 />
 
                 <div>Or...</div>
@@ -41,22 +41,19 @@ function AnnoyingButton({ article }: Props) {
                     text="Buy For"
                     price={price}
                     currency="SEK"
-                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/${slug}`}
-                    pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/subscription`}
+                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                    pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
                 />
             </sesamy-button-container>
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-content-container.min.js"
+                src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-content-container.min.js`}
             />
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button-container.min.js"
+                src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-button-container.min.js`}
             />
-            <Script
-                defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button.min.js"
-            />
+            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-button.min.js`} />
         </div>
     );
 }
