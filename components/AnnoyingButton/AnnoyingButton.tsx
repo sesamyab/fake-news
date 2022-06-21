@@ -45,15 +45,7 @@ function AnnoyingButton({ article }: Props) {
                     pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
                 />
             </sesamy-button-container>
-            <Script
-                defer
-                src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-content-container.min.js`}
-            />
-            <Script
-                defer
-                src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-button-container.min.js`}
-            />
-            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-button.min.js`} />
+            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-bundle.min.js`} />
         </div>
     );
 }
