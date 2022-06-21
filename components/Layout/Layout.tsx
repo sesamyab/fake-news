@@ -1,9 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import Link from 'next/link';
 
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
+
+import { NEXT_PUBLIC_WEB_COMPONENT_BASE_URL } from '../../constants';
 
 interface Props {
     children: React.ReactNode;
@@ -70,6 +73,7 @@ const Layout = ({ children }: Props) => {
             </header>
 
             <main className={styles.content}>{children}</main>
+            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-bundle.min.js`} />
         </div>
     );
 };

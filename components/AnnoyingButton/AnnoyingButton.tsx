@@ -1,8 +1,7 @@
 import React from 'react';
-import Script from 'next/script';
 import Head from 'next/head';
 
-import { NEXT_PUBLIC_PRODUCT_URL_TEST, NEXT_PUBLIC_WEB_COMPONENT_BASE_URL } from '../../constants';
+import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
 
 interface Props {
     article: Article;
@@ -45,7 +44,6 @@ function AnnoyingButton({ article }: Props) {
                     pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
                 />
             </sesamy-button-container>
-            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-bundle.min.js`} />
         </div>
     );
 }
