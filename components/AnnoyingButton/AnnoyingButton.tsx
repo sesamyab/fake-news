@@ -23,8 +23,9 @@ function AnnoyingButton({ article }: Props) {
                 lock-mode="signedUrl"
                 item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
                 pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                access-url={`http://localhost:3000/api/access/${slug}`}
             >
-                <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
+                {/* <div slot="content" dangerouslySetInnerHTML={{ __html: content }} /> */}
             </sesamy-content-container>
             <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button
