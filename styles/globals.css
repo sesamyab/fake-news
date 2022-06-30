@@ -160,3 +160,11 @@ sesamy-button {
     --color: #ffffff;
     --background: #ff0000;
 }
+
+sesamy-login {
+    --primary-color: #88aace;
+    --button-padding: 12px 20px;
+    --color: #ffffff;
+    display: flex;
+    margin: 120px;
+}
