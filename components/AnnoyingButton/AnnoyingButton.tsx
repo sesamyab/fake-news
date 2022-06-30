@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import styles from './AnnoyingButton.module.css';
 
 import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
 
@@ -28,22 +29,24 @@ function AnnoyingButton({ article }: Props) {
                 {/* <div slot="content" dangerouslySetInnerHTML={{ __html: content }} /> */}
             </sesamy-content-container>
             <sesamy-button-container imageSrc={image} description={description}>
-                <sesamy-button
-                    text="Subscribe"
-                    price={49}
-                    currency="SEK"
-                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
-                />
+                <div className={styles.buttonWrapper}>
+                    <sesamy-button
+                        text="Subscribe"
+                        price={49}
+                        currency="SEK"
+                        item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                    />
 
-                <div>Or...</div>
+                    <div>Or...</div>
 
-                <sesamy-button
-                    text="Buy For"
-                    price={price}
-                    currency="SEK"
-                    item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
-                    pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
-                />
+                    <sesamy-button
+                        text="Buy For"
+                        price={price}
+                        currency="SEK"
+                        item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                        pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                    />
+                </div>
             </sesamy-button-container>
         </div>
     );

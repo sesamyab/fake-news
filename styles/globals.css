@@ -168,3 +168,7 @@ sesamy-login {
     display: flex;
     margin: 120px;
 }
+
+sesamy-content-container {
+    --button-wrapper-flex-direction: row;
+}
