@@ -11,12 +11,14 @@
     margin-bottom: var(--spacing-md);
     color: rgba(var(--color-black), 1);
     font-size: var(--fs-xl);
+    line-height: 1.3em;
 }
 
 .description {
     margin-bottom: var(--spacing-md);
     color: rgba(var(--color-black), 0.8);
     font-size: var(--fs-xl);
+    font: 1em/1.65em 'Public Sans', 'Arial', sans-serif;
 }
 
 .imageWrapper {

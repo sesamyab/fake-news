@@ -17,6 +17,7 @@ const AuthorCard: FC<Props> = (props) => {
                     margin: '20px',
                     borderRadius: '50%',
                     overflow: 'hidden',
+                    display: 'flex',
                 }}
             >
                 <Image alt={name} src={image} width={100} height={100} objectFit="cover" />
