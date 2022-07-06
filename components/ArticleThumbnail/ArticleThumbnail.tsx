@@ -17,7 +17,7 @@ const ArticleThumbnail: FC<Props> = ({ article }) => (
                         alt={article.title}
                         src={article.image}
                         layout="fill"
-                        objectFit="cover"
+                        objectFit="unset"
                         objectPosition="50% 50%"
                     />
                 </div>
