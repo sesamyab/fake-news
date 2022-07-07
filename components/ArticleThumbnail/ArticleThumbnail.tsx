@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
-
 import styles from './ArticleThumbnail.module.css';
 
 interface Props {

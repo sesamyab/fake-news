@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import Logo from '../Logo/Logo';
 
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
@@ -63,7 +63,7 @@ const Layout = ({ children }: Props) => {
                 <div className={styles.headerContent}>
                     <div className={styles.logoWrapper}>
                         <Link href="/">
-                            <Image src="/logo.png" alt="Kvartal" layout="fill" objectFit="cover" />
+                            <Logo height={80} color="#fff" />
                         </Link>
                     </div>
                     <div>
