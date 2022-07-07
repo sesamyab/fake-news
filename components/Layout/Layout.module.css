@@ -7,10 +7,16 @@
         'content';
 }
 
-.header {
+.headerHome {
     grid-area: header;
     background: none;
     z-index: 100;
+}
+
+.header {
+    grid-area: header;
+    background: rgba(var(--color-white), 0.9);
+    border-bottom: 4px solid rgba(var(--color-primary), 1);
 }
 
 .headerContent {

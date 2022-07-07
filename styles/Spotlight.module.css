@@ -21,10 +21,6 @@
 
 @media (max-width: 2068px) {
     .spotlightInfo {
-        top: 200px;
-        color: #f3f3f3;
-        max-width: 500px;
-        position: absolute;
         left: 20%;
     }
 }
