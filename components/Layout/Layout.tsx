@@ -64,11 +64,12 @@ const Layout = ({ children }: Props) => {
         <div className={styles.wrapper}>
             <header className={pathname !== '/' ? styles.header : styles.headerHome}>
                 <div className={styles.headerContent}>
-                    <div className={styles.logoWrapper}>
-                        <Link href="/">
+                    <Link href="/">
+                        <div className={styles.logoWrapper}>
                             <Logo height={80} color={pathname !== '/' ? '#030303' : '#f3f3f3'} />
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
+
                     <div>
                         <LoginButton />
                     </div>
