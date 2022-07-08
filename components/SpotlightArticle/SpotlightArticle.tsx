@@ -12,7 +12,7 @@ const SpotlightArticle: FC<Props> = (props) => {
     return (
         <div className={styles.spotlight}>
             <Link href={`/${article.slug}`}>
-                <div style={{ width: '100%', height: '450px', position: 'relative' }}>
+                <div style={{ width: '100%', height: '650px', position: 'relative' }}>
                     <Image
                         alt={article.title}
                         src={article.image}

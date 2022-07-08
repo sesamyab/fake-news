@@ -34,7 +34,6 @@
     cursor: pointer;
     display: block;
     flex-basis: 15%;
-    background-blend-mode: multiply !important;
 }
 
 .logoWrapper svg {

@@ -11,15 +11,17 @@ const ArticleThumbnail: FC<Props> = ({ article }) => (
     <li>
         <Link href={`/${article.slug}`}>
             <a className={styles.wrapper}>
-                <div className={styles.imageWrapper}>
-                    <Image
-                        alt={article.title}
-                        src={article.image}
-                        layout="fill"
-                        objectFit="unset"
-                        objectPosition="50% 50%"
-                    />
+                <div className={styles.imageContainer}>
+                    <div className={styles.imageWrapper}>
+                        <Image
+                            alt={article.title}
+                            src={article.image}
+                            layout="fill"
+                            objectFit="contain"
+                        />
+                    </div>
                 </div>
+
                 <h3 className={styles.title}>{article.title}</h3>
                 <p className={styles.description}>{article.description}</p>
             </a>
