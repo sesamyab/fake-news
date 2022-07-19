@@ -2,8 +2,9 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-decoration: none;
 }
 
@@ -12,6 +13,10 @@
     color: rgba(var(--color-black), 1);
     font-size: var(--fs-xl);
     line-height: 1.3em;
+    max-height: 50px;
+    overflow: hidden;
+    font: normal normal medium 15px/19px Inter;
+    color: #222222;
 }
 
 .description {
@@ -22,7 +27,37 @@
 }
 
 .imageWrapper {
-    height: 200px;
+    height: 95px;
+    width: 95px;
     margin-bottom: var(--spacing-md);
     position: relative;
+    display: flex;
+    align-self: center;
+}
+
+.imageWrapper img {
+    border-radius: 12px;
+}
+
+.text {
+    border-top: 1px solid #c3c3c3;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    margin-left: 16px;
+}
+
+.text p {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.text h3 {
+    font-weight: normal;
+    max-height: 26px;
+    overflow: hidden;
 }

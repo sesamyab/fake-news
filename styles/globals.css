@@ -166,7 +166,6 @@ sesamy-login {
     --button-padding: 12px 20px;
     --color: #ffffff;
     display: flex;
-    margin: 120px;
 }
 
 sesamy-content-container {

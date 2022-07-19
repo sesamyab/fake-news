@@ -7,6 +7,10 @@
         'content';
 }
 
+.wrapper ul {
+    gap: 3px;
+}
+
 .header {
     grid-area: header;
     background: rgba(var(--color-white), 0.9);

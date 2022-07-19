@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
-
+import { intlFormat } from 'date-fns';
 import styles from './ArticleThumbnail.module.css';
 
 interface Props {
@@ -21,8 +21,24 @@ const ArticleThumbnail: FC<Props> = ({ article }) => (
                         objectPosition="50% 50%"
                     />
                 </div>
-                <h3 className={styles.title}>{article.title}</h3>
-                <p className={styles.description}>{article.description}</p>
+                <div className={styles.text}>
+                    <p className={styles.description}>{article.price}</p>
+                    <h3 className={styles.title}>{article.title}</h3>
+                    <p className={styles.description}>
+                        {intlFormat(
+                            new Date(article.date),
+                            {
+                                weekday: 'long',
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                            },
+                            {
+                                locale: 'se-SE',
+                            }
+                        )}
+                    </p>
+                </div>
             </a>
         </Link>
     </li>
