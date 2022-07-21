@@ -22,7 +22,15 @@
 }
 
 .imageWrapper {
-    height: 200px;
-    margin-bottom: var(--spacing-md);
     position: relative;
+    width: 80%;
+}
+
+.imageContainer {
+    margin: 12px auto;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    height: 160px;
+    width: 160px;
 }

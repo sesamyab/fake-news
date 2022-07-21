@@ -35,7 +35,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
                         alt={article.title}
                         src={article.image}
                         layout="fill"
-                        objectFit="cover"
+                        objectFit="inherit"
                     />
                 </div>
                 <div className={styles.excerpt}>{article.excerpt}</div>

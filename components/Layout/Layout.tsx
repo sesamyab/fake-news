@@ -1,7 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import Logo from '../Logo/Logo';
+import { useRouter } from 'next/router';
 
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
@@ -57,15 +58,18 @@ declare global {
 }
 
 const Layout = ({ children }: Props) => {
+    const { pathname } = useRouter();
+    console.log(pathname);
     return (
         <div className={styles.wrapper}>
-            <header className={styles.header}>
+            <header className={pathname !== '/' ? styles.header : styles.headerHome}>
                 <div className={styles.headerContent}>
-                    <div className={styles.logoWrapper}>
-                        <Link href="/">
-                            <Image src="/logo.png" alt="Kvartal" layout="fill" objectFit="cover" />
-                        </Link>
-                    </div>
+                    <Link href="/">
+                        <div className={styles.logoWrapper}>
+                            <Logo height={80} color={pathname !== '/' ? '#030303' : '#f3f3f3'} />
+                        </div>
+                    </Link>
+
                     <div>
                         <LoginButton />
                     </div>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
-
 import styles from './ArticleThumbnail.module.css';
 
 interface Props {
@@ -12,15 +11,17 @@ const ArticleThumbnail: FC<Props> = ({ article }) => (
     <li>
         <Link href={`/${article.slug}`}>
             <a className={styles.wrapper}>
-                <div className={styles.imageWrapper}>
-                    <Image
-                        alt={article.title}
-                        src={article.image}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="50% 50%"
-                    />
+                <div className={styles.imageContainer}>
+                    <div className={styles.imageWrapper}>
+                        <Image
+                            alt={article.title}
+                            src={article.image}
+                            layout="fill"
+                            objectFit="contain"
+                        />
+                    </div>
                 </div>
+
                 <h3 className={styles.title}>{article.title}</h3>
                 <p className={styles.description}>{article.description}</p>
             </a>
