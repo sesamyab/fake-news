@@ -10,11 +10,7 @@ const SubscriptionPage: FC = () => {
             <sesamy-entitlements></sesamy-entitlements>
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-profile.min.js"
-            />
-            <Script
-                defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-entitlements.min.js"
+                src="https://assets.sesamy.dev/scripts/web-components/sesamy-bundle.min.js"
             />
         </Layout>
     );
