@@ -33,15 +33,7 @@ const SubscriptionPage: FC<Props> = () => {
             </sesamy-button-container>
             <Script
                 defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-content-container.min.js"
-            />
-            <Script
-                defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button-container.min.js"
-            />
-            <Script
-                defer
-                src="https://assets.sesamy.dev/scripts/checkout-button-markus/sesamy-button.min.js"
+                src="https://assets.sesamy.dev/scripts/web-components/sesamy-bundle.min.js"
             />
         </Layout>
     );

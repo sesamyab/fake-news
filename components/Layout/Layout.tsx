@@ -59,7 +59,7 @@ declare global {
 
 const Layout = ({ children }: Props) => {
     const { pathname } = useRouter();
-    console.log(pathname);
+
     return (
         <div className={styles.wrapper}>
             <header className={pathname !== '/' ? styles.header : styles.headerHome}>
