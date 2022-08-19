@@ -9,7 +9,7 @@ interface Props {
 }
 
 function AnnoyingButton({ article }: Props) {
-    const { content, price, description, image, title, slug } = article;
+    const { content, price, description, image, title, slug, id } = article;
 
     return (
         <div>
@@ -20,6 +20,7 @@ function AnnoyingButton({ article }: Props) {
                 <meta property="sesamy:image" content={image} />
                 <meta property="sesamy:title" content={title} />
             </Head>
+
             <sesamy-content-container
                 lock-mode="signedUrl"
                 item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
