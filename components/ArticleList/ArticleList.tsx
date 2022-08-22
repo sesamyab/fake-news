@@ -12,7 +12,7 @@ const ArticleList: FC<Props> = ({ articles }) => (
         {articles.map((article) => (
             <sesamy-content-listing
                 itemSrc={`/${article.slug}`}
-                publisherProductID={article.id.toString()}
+                publisherProductID={`${article.id}`}
                 key={article.id}
             >
                 <ArticleThumbnail article={article} />
