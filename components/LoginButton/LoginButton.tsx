@@ -7,7 +7,7 @@ enum Variant {
 
 const LoginButton = () => {
     return (
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
             <sesamy-login client-id="sesamy"></sesamy-login>
             <sesamy-login client-id="sesamy" variant={Variant.Logout}></sesamy-login>
         </div>
