@@ -1,5 +1,6 @@
 import React from 'react';
 import Script from 'next/script';
+import Head from 'next/head';
 import Link from 'next/link';
 import Logo from '../Logo/Logo';
 import { useRouter } from 'next/router';
@@ -35,7 +36,7 @@ interface SesamyButtonProps
 
 interface SesamyLoginProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    'client-id': string;
+    variant?: string;
 }
 
 declare global {
@@ -78,6 +79,9 @@ const Layout = ({ children }: Props) => {
 
             <main className={styles.content}>{children}</main>
             <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-bundle.min.js`} />
+            <Head>
+                <meta property="sesamy:client-id" content="sesamy" />
+            </Head>
         </div>
     );
 };

@@ -6,6 +6,7 @@ import { Layout } from '../components';
 const SubscriptionPage: FC = () => {
     return (
         <Layout>
+            <sesamy-login variant="logout"></sesamy-login>
             <sesamy-profile></sesamy-profile>
             <sesamy-entitlements></sesamy-entitlements>
             <Script
