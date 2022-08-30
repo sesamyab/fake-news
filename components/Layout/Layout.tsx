@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import LoginButton from '../LoginButton/LoginButton';
 import styles from './Layout.module.css';
 
-import { NEXT_PUBLIC_WEB_COMPONENT_BASE_URL } from '../../constants';
+import { webComponentBaseUrl } from '../../constants';
 
 interface Props {
     children: React.ReactNode;
@@ -101,7 +101,7 @@ const Layout = ({ children }: Props) => {
             </header>
 
             <main className={styles.content}>{children}</main>
-            <Script defer src={`${NEXT_PUBLIC_WEB_COMPONENT_BASE_URL}/sesamy-bundle.min.js`} />
+            <Script defer src={`${webComponentBaseUrl}/sesamy-bundle.min.js`} />
             <Head>
                 <meta property="sesamy:client-id" content="sesamy" />
             </Head>

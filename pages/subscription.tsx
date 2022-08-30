@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 import { Layout } from '../components';
+import { webComponentBaseUrl } from '../constants';
 
 interface Props {
     articles: Article[];
@@ -31,10 +32,7 @@ const SubscriptionPage: FC<Props> = () => {
             <sesamy-button-container imageSrc={image} description={description}>
                 <sesamy-button text="Buy For" price={price} currency="SEK" />
             </sesamy-button-container>
-            <Script
-                defer
-                src="https://assets.sesamy.dev/scripts/web-components/sesamy-bundle.min.js"
-            />
+            <Script defer src={`${webComponentBaseUrl}/sesamy-bundle.min.js`} />
         </Layout>
     );
 };
