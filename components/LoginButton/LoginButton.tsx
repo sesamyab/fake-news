@@ -1,4 +1,11 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
+enum Variant {
+    Picture = 'picture',
+    Logout = 'logout',
+    SesamyText = 'sesamy-text',
+}
 
 import { useRouter } from 'next/router';
 
