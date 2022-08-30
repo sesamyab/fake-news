@@ -25,6 +25,8 @@ function AnnoyingButton({ article }: Props) {
             <sesamy-content-container
                 lock-mode="signedUrl"
                 item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                access-url={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/api/access/${slug}`}
             >
                 <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} />
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
