@@ -41,7 +41,8 @@ const ArticlePage: FC<Props> = ({ article }) => {
                 <div className={styles.excerpt}>{article.excerpt}</div>
                 <hr
                     style={{
-                        width: '80%',
+                        width: '800px',
+                        maxWidth: '80%',
                         height: '1px',
                         color: '#ccc',
                         border: 'none',
