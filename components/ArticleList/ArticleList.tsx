@@ -10,7 +10,13 @@ interface Props {
 const ArticleList: FC<Props> = ({ articles }) => (
     <ul className={styles.wrapper}>
         {articles.map((article) => (
-            <ArticleThumbnail key={article.id} article={article} />
+            <sesamy-content-listing
+                itemSrc={`/${article.slug}`}
+                publisherProductID={`${article.id}`}
+                key={article.id}
+            >
+                <ArticleThumbnail article={article} />
+            </sesamy-content-listing>
         ))}
     </ul>
 );

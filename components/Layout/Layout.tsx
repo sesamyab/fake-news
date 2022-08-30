@@ -14,6 +14,12 @@ interface Props {
     children: React.ReactNode;
 }
 
+enum Variant {
+    Picture = 'picture',
+    Logout = 'logout',
+    SesamyText = 'sesamy-text',
+}
+
 interface SesamyContentContainerProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     gradient?: boolean;
@@ -35,9 +41,16 @@ interface SesamyButtonProps
     'hide-button'?: string;
 }
 
+interface ContentListingProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    itemSrc: string;
+    publisherProductID: string;
+}
+
 interface SesamyLoginProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    variant?: string;
+    variant?: Variant.Logout | Variant.Picture | Variant.SesamyText;
+    'client-id': string;
 }
 
 interface SesamyLockedContentContainerProps
@@ -53,6 +66,7 @@ declare global {
             'sesamy-content-container': SesamyContentContainerProps;
             'sesamy-button-container': SesamyButtonContainerProps;
             'sesamy-button': SesamyButtonProps;
+            'sesamy-content-listing': ContentListingProps;
             'sesamy-login': SesamyLoginProps;
             'sesamy-profile': React.DetailedHTMLProps<
                 React.HTMLAttributes<HTMLElement>,
