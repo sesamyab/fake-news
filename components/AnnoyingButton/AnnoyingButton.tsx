@@ -97,7 +97,7 @@ function AnnoyingButton({ article }: Props) {
                                 marginBottom: '20px',
                             }}
                         >
-                            <div slot="sesamy-button-text">
+                            <div slot="button-text">
                                 <em
                                     style={{
                                         display: 'inline-block',
@@ -166,7 +166,7 @@ function AnnoyingButton({ article }: Props) {
                             }}
                             hide-price="true"
                         >
-                            <div slot="sesamy-button-text">
+                            <div slot="button-text">
                                 <span style={{ marginRight: '0.5em' }}>Bli prenumerant</span>
                                 <em
                                     style={{
