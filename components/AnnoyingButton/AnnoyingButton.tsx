@@ -32,7 +32,10 @@ function AnnoyingButton({ article }: Props) {
                 <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} />
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
-            <sesamy-locked-content-container item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}>
+            <sesamy-locked-content-container
+                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+            >
                 <svg style={{ display: 'none' }}>
                     <defs>
                         <symbol id="tf-fas-book-reader" viewBox="0 0 32 32">
