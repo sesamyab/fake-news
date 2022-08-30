@@ -28,15 +28,23 @@ interface SesamyButtonContainerProps
 
 interface SesamyButtonProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    text: string;
-    price: number;
-    currency: string;
+    text?: string;
+    price?: number;
+    currency?: string;
     pass?: string;
+    'hide-button'?: string;
 }
 
 interface SesamyLoginProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     variant?: string;
+}
+
+interface SesamyLockedContentContainerProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    'publisher-content-id'?: string;
+    'item-src'?: string;
+    pass?: string;
 }
 
 declare global {
@@ -54,6 +62,7 @@ declare global {
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
             >;
+            'sesamy-locked-content-container': SesamyLockedContentContainerProps;
         }
     }
 }
