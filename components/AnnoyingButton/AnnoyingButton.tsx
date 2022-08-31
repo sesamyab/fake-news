@@ -155,7 +155,7 @@ function AnnoyingButton({ article }: Props) {
                             <small>Därefter 99 kr i månaden utan bindningstid.</small>
                         </p>
                         <sesamy-button
-                            item-src={`${productUrlTest}/${slug}`}
+                            item-src={`${productUrlTest}/subscription`}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
