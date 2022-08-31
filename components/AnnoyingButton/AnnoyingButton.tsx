@@ -31,7 +31,7 @@ function AnnoyingButton({ article }: Props) {
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
             <sesamy-locked-content-container
-                item-src={`${productUrlTest}/subscription`}
+                item-src={`${productUrlTest}/${slug}`}
                 pass={`${productUrlTest}/subscription`}
             >
                 <svg style={{ display: 'none' }}>
@@ -155,7 +155,7 @@ function AnnoyingButton({ article }: Props) {
                             <small>Därefter 99 kr i månaden utan bindningstid.</small>
                         </p>
                         <sesamy-button
-                            item-src={`${productUrlTest}/${slug}`}
+                            item-src={`${productUrlTest}/subscription`}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
