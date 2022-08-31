@@ -3,7 +3,8 @@
     font-size: 1em;
     font-weight: 600;
     font-family: 'Open Sans', serif;
-    width: 80%;
+    width: 800px;
+    max-width: 80%;
     line-height: 1.6em;
     border-bottom: 2px solid #000;
 }
@@ -12,17 +13,21 @@
     font-size: 3em;
     margin: 30px 0;
     font-weight: 300;
-    width: 80%;
+    width: 800px;
+    max-width: 80%;
     font-family: 'Play-Fair Display', serif;
 }
 
 .excerpt {
-    font-size: 1.8em;
+    font-size: 24px;
     font-weight: bold;
-    width: 80%;
+    width: 800px;
+    max-width: 80%;
     font-family: 'Play-Fair Display', serif;
-    margin-top: 1.3em;
     line-height: 1.5;
+    padding: 0;
+    margin: 0 0 1.3em;
+    margin-top: 50px;
 }
 
 .articlePage {
@@ -34,5 +39,6 @@
 }
 
 .articleContent {
-    width: 80%;
+    width: 800px;
+    max-width: 80%;
 }

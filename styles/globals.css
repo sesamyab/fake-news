@@ -174,3 +174,83 @@ sesamy-login {
 sesamy-content-container {
     --button-wrapper-flex-direction: row;
 }
+
+#article {
+    font: 1em/1.65em 'Public Sans', 'Arial', sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+#article h1 {
+    font-size: 55px;
+    font-family: 'Playfair Display', 'Times New Roman', Serif;
+    font-weight: 400;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.5em;
+    overflow-wrap: normal;
+    color: #000;
+}
+#article {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    margin-bottom: 60px;
+}
+#article div p {
+    font-family: Georgia, 'DejaVu Serif', 'Times New Roman', Serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0 0 1.3em;
+    color: #1b1f2b;
+}
+#article div h2 {
+    font-family: 'Playfair Display', 'Times New Roman', Serif;
+    font-weight: 600 !important;
+    font-size: 29px;
+    line-height: 1.3em;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5em;
+    overflow-wrap: normal;
+    color: #000;
+}
+#article div a {
+    color: #8a3a67;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+#article div blockquote {
+    font-size: 26px;
+    margin-bottom: 0 !important;
+    padding-top: 10px;
+    padding-bottom: 20px !important;
+    font-family: 'Playfair Display', 'Times New Roman', Serif !important;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #8a3a67;
+    border-left: 0;
+    margin: 0 5% 1.2em;
+}
+#article div blockquote:before {
+    content: '\201D';
+    margin-top: -12px;
+    font-size: 61px;
+    float: left;
+    margin-right: 10px;
+    margin-left: -32px;
+}
+#article div blockquote p {
+    font-size: 26px;
+    font-family: 'Playfair Display', 'Times New Roman', Serif !important;
+    font-weight: 600;
+    padding-bottom: 0px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    color: #8a3a67;
+}

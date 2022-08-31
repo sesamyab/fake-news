@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Head from 'next/head';
-import styles from './AnnoyingButton.module.css';
-
-import { NEXT_PUBLIC_PRODUCT_URL_TEST } from '../../constants';
+import { productUrlTest } from '../../constants';
 
 interface Props {
     article: Article;
@@ -13,7 +11,7 @@ function AnnoyingButton({ article }: Props) {
     const { content, price, description, image, title, slug, excerpt } = article;
 
     return (
-        <div style={{ marginBottom: '60px' }}>
+        <div id="article">
             <Head>
                 <meta property="sesamy:price" content={String(price)} />
                 <meta property="sesamy:currency" content="SEK" />
@@ -25,16 +23,16 @@ function AnnoyingButton({ article }: Props) {
 
             <sesamy-content-container
                 lock-mode="signedUrl"
-                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
-                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
-                access-url={`${NEXT_PUBLIC_PRODUCT_URL_TEST}/api/access/${slug}`}
+                item-src={`${productUrlTest}/${slug}`}
+                pass={`${productUrlTest}/subscription`}
+                access-url={`/api/access/${slug}`}
             >
-                <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} />
+                {/* <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} /> */}
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
             </sesamy-content-container>
             <sesamy-locked-content-container
-                item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
-                pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                item-src={`${productUrlTest}/${slug}`}
+                pass={`${productUrlTest}/subscription`}
             >
                 <svg style={{ display: 'none' }}>
                     <defs>
@@ -88,8 +86,8 @@ function AnnoyingButton({ article }: Props) {
                         <sesamy-button
                             price={price}
                             currency="SEK"
-                            item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
-                            pass={`${NEXT_PUBLIC_PRODUCT_URL_TEST}subscription`}
+                            item-src={`${productUrlTest}/${slug}`}
+                            pass={`${productUrlTest}/subscription`}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -157,7 +155,7 @@ function AnnoyingButton({ article }: Props) {
                             <small>Därefter 99 kr i månaden utan bindningstid.</small>
                         </p>
                         <sesamy-button
-                            item-src={`${NEXT_PUBLIC_PRODUCT_URL_TEST}${slug}`}
+                            item-src={`${productUrlTest}/${slug}`}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
