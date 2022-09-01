@@ -17,10 +17,6 @@ export function middleware(req: NextRequest) {
         return undefined;
     }
 
-    if (req.nextUrl.pathname.includes('403')) {
-        return undefined;
-    }
-
     const basicAuth = req.headers.get('authorization');
 
     if (basicAuth) {

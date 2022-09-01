@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
 import { Layout } from '../components';
-
-// TODO - also return 403 header... maybe should be 401
+import styles from '../styles/401.module.css';
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     res.statusCode = 401;
@@ -12,7 +11,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 const AccessDenied: FC = () => {
     return (
         <Layout>
-            <h1>Lacking BasicAuth credentials</h1>
+            <div className={styles.page}>
+                <h1 className={styles.title}>Auth credentials lacking</h1>
+            </div>
         </Layout>
     );
 };
