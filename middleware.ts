@@ -37,7 +37,11 @@ export function middleware(req: NextRequest) {
         }
     }
 
-    return NextResponse.rewrite(new URL('/403', req.url));
+    const badAuthRes = NextResponse.rewrite(new URL('/403', req.url));
+
+    badAuthRes.headers.set('WWW-Authenticate', 'Basic realm=protected');
+
+    return badAuthRes;
 }
 
 /*
