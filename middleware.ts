@@ -37,7 +37,7 @@ export function middleware(req: NextRequest) {
         }
     }
 
-    const badAuthRes = NextResponse.rewrite(new URL('/403', req.url));
+    const badAuthRes = NextResponse.rewrite(new URL('/401', req.url));
 
     badAuthRes.headers.set('WWW-Authenticate', 'Basic realm=protected');
 
