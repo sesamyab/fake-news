@@ -44,8 +44,8 @@ interface SesamyButtonProps
 
 interface ContentListingProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
-    itemSrc: string;
-    publisherProductID: string;
+    'item-src': string;
+    'publisher-product-id': string;
 }
 
 interface SesamyLoginProps
