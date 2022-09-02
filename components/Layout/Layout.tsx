@@ -50,8 +50,10 @@ interface ContentListingProps
 interface SesamyLoginProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     variant?: Variant.Logout | Variant.Picture | Variant.SesamyText;
-    'client-id': string;
 }
+
+interface SesamyLogoutProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {}
 
 interface SesamyLockedContentContainerProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
@@ -68,6 +70,7 @@ declare global {
             'sesamy-button': SesamyButtonProps;
             'sesamy-content-listing': ContentListingProps;
             'sesamy-login': SesamyLoginProps;
+            'sesamy-logout': SesamyLogoutProps;
             'sesamy-profile': React.DetailedHTMLProps<
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
