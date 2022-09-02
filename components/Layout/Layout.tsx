@@ -24,6 +24,7 @@ interface SesamyContentContainerProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     gradient?: boolean;
     pass?: string;
+    public?: boolean;
 }
 
 interface SesamyButtonContainerProps
@@ -61,6 +62,13 @@ interface SesamyLockedContentContainerProps
     'item-src'?: string;
     pass?: string;
 }
+interface SesamyContentDataProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    id: string;
+    'item-src'?: string;
+    pass?: string;
+    public?: boolean;
+}
 
 declare global {
     namespace JSX {
@@ -80,6 +88,7 @@ declare global {
                 HTMLElement
             >;
             'sesamy-locked-content-container': SesamyLockedContentContainerProps;
+            'sesamy-content-data': SesamyContentDataProps;
         }
     }
 }
