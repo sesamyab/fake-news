@@ -1,25 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { productUrlTest } from '../../constants';
+import { hasPass, hasPublicContent, hasServerSideContent, showExcerpt } from '../../utils/article';
 import OneTimePaymentButton from '../Button/OneTimePaymentButton';
 import SubscriptionButton from '../Button/SubscriptionButton';
 import LockedContentContainer from '../LockedContentContainer/LockedContentContainer';
 
 interface Props {
     article: Article;
-    hasPublicContent: boolean;
-    hasServerSideContent: boolean;
-    hasPass: boolean;
-    hasExcerpt: boolean;
 }
 
-function AnnoyingButton({
-    article,
-    hasPublicContent,
-    hasServerSideContent = false,
-    hasPass = false,
-    hasExcerpt = false,
-}: Props) {
+function AnnoyingButton({ article }: Props) {
     const { id, content, price, description, image, title, slug, excerpt } = article;
     const contentDataProps = {
         id: id.toString(),
@@ -27,30 +18,33 @@ function AnnoyingButton({
         title,
         description,
         image,
-        pass: hasPass ? `${productUrlTest}/subscription` : undefined,
+        pass: hasPass(id) ? `${productUrlTest}/subscription` : undefined,
         'item-src': `${productUrlTest}/${slug}`,
-        public: hasPublicContent || undefined,
+        public: hasPublicContent(id) || undefined,
     };
     const contentContainerProps = {
-        'access-url': hasServerSideContent ? `/api/access/${slug}` : undefined,
+        'publisher-content-id': id.toString(),
+        'access-url': hasServerSideContent(id) ? `/api/access/${slug}` : undefined,
     };
 
     return (
-        <>
+        <div id="article">
             <sesamy-content-data {...contentDataProps}></sesamy-content-data>
             <sesamy-content-container {...contentContainerProps}>
-                {hasExcerpt && <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} />}
-                {hasServerSideContent && (
+                {showExcerpt(id) && (
+                    <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} />
+                )}
+                {!hasServerSideContent(id) && (
                     <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
                 )}
             </sesamy-content-container>
-            <sesamy-locked-content-container>
+            <sesamy-locked-content-container publisher-content-id={id.toString()}>
                 <LockedContentContainer
                     firstSlot={<OneTimePaymentButton id={id.toString()} />}
-                    secondSlot={<SubscriptionButton id={id.toString()} />}
+                    secondSlot={<SubscriptionButton pass={`${productUrlTest}/subscription`} />}
                 />
             </sesamy-locked-content-container>
-        </>
+        </div>
     );
 }
 

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { hasPass, hasPublicContent } from '../../utils/article';
 import styles from './ArticleThumbnail.module.css';
 
 interface Props {
@@ -22,6 +23,14 @@ const ArticleThumbnail: FC<Props> = ({ article }) => (
                     </div>
                 </div>
 
+                <div>
+                    {hasPublicContent(article.id) && (
+                        <span style={{ fontSize: '12px', color: 'green' }}>Public</span>
+                    )}
+                    {hasPass(article.id) && (
+                        <span style={{ fontSize: '12px', color: 'red' }}>Pass</span>
+                    )}
+                </div>
                 <h3 className={styles.title}>{article.title}</h3>
                 <p className={styles.description}>{article.description}</p>
             </a>

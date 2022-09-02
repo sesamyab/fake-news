@@ -3,19 +3,9 @@ import Head from 'next/head';
 import ArticleContent from '../ArticleContent/ArticleContent';
 interface Props {
     article: Article;
-    hasPublicContent?: boolean;
-    hasServerSideContent?: boolean;
-    hasPass?: boolean;
-    hasExcerpt?: boolean;
 }
 
-function Article({
-    article,
-    hasPublicContent = false,
-    hasServerSideContent = false,
-    hasPass = false,
-    hasExcerpt = false,
-}: Props) {
+function Article({ article }: Props) {
     const { price, description, image, title } = article;
 
     return (
@@ -28,13 +18,8 @@ function Article({
                 <meta property="sesamy:title" content={title} />
                 <meta property="sesamy:client-id" content="sesamy" />
             </Head>
-            <ArticleContent
-                article={article}
-                hasPublicContent={hasPublicContent}
-                hasServerSideContent={hasServerSideContent}
-                hasPass={hasPass}
-                hasExcerpt={hasExcerpt}
-            />
+
+            <ArticleContent article={article} />
         </>
     );
 }
