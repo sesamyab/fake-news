@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import ArticleContent from '../ArticleContent/ArticleContent';
 interface Props {
     article: Article;
-    isPublic?: boolean;
-    serverSideContent?: boolean;
-    withPass?: boolean;
-    withExcerpt?: boolean;
+    hasPublicContent?: boolean;
+    hasServerSideContent?: boolean;
+    hasPass?: boolean;
+    hasExcerpt?: boolean;
 }
 
-const ArticleComponent: FC<Props> = ({
+function Article({
     article,
-    isPublic = false,
-    serverSideContent = false,
-    withPass = false,
-    withExcerpt = false,
-}) => {
+    hasPublicContent = false,
+    hasServerSideContent = false,
+    hasPass = false,
+    hasExcerpt = false,
+}: Props) {
     const { price, description, image, title } = article;
 
     return (
@@ -30,13 +30,13 @@ const ArticleComponent: FC<Props> = ({
             </Head>
             <ArticleContent
                 article={article}
-                isPublic={isPublic}
-                serverSideContent={serverSideContent}
-                withPass={withPass}
-                withExcerpt={withExcerpt}
+                hasPublicContent={hasPublicContent}
+                hasServerSideContent={hasServerSideContent}
+                hasPass={hasPass}
+                hasExcerpt={hasExcerpt}
             />
         </>
     );
-};
+}
 
-export default ArticleComponent;
+export default Article;
