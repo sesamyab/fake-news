@@ -1,8 +1,8 @@
-export interface SesamyButtonProps {
+interface OneTimePaymentButtonProps {
     id: string;
 }
 
-function OneTimePaymentButton({ id }: SesamyButtonProps) {
+function OneTimePaymentButton({ id }: OneTimePaymentButtonProps) {
     return (
         <sesamy-button
             publisher-content-id={id}

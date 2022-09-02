@@ -1,9 +1,10 @@
-import { SesamyButtonProps } from './OneTimePaymentButton';
+interface SubscriptionButtonProps {
+    pass: string;
+}
 
-function SubscriptionButton({ id }: SesamyButtonProps) {
+function SubscriptionButton({ pass }: SubscriptionButtonProps) {
     return (
         <sesamy-button
-            publisher-content-id={id}
             style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -11,6 +12,7 @@ function SubscriptionButton({ id }: SesamyButtonProps) {
                 marginBottom: '20px',
             }}
             hide-price="true"
+            pass={pass}
         >
             <div slot="button-text">
                 <span style={{ marginRight: '0.5em' }}>Bli prenumerant</span>
