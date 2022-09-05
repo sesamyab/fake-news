@@ -64,13 +64,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         });
     }
 
-    try {
-        await authorize(req, [req.query.slug, 'subscription']);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'useragent, x-sesamy-signed-url');
 
-        const article = findById(req.query.slug);
+    if (req.method === 'OPTIONS') {
+        res.status(200);
+        res.setHeader('Allow', 'OPTIONS, GET');
+        res.send('');
+    } else {
+        try {
+            await authorize(req, [req.query.slug, 'subscription']);
 
-        res.status(200).send(article?.content || '');
-    } catch (err) {
-        res.status(403).send('Unauthorized');
+            const article = findById(req.query.slug);
+
+            res.status(200).send(article?.content || '');
+        } catch (err) {
+            res.status(403).send('Unauthorized');
+        }
     }
 }

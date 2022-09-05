@@ -25,6 +25,8 @@ function AnnoyingButton({ article }: Props) {
     const contentContainerProps = {
         'publisher-content-id': id.toString(),
         'access-url': hasServerSideContent(id) ? `/api/access/${slug}` : undefined,
+        // If you want to test with an api on a separate domain (CORS...) you can bounce it via ngrok
+        // access-url={`https://344f-2-136-241-70.eu.ngrok.io/api/access/${slug}`}
     };
 
     return (
