@@ -26,6 +26,8 @@ function AnnoyingButton({ article }: Props) {
                 item-src={`${productUrlTest}/${slug}`}
                 pass={`${productUrlTest}/subscription`}
                 access-url={`/api/access/${slug}`}
+                // If you want to test with an api on a separate domain (CORS...) you can bounce it via ngrok
+                // access-url={`https://344f-2-136-241-70.eu.ngrok.io/api/access/${slug}`}
             >
                 {/* <div slot="preview" dangerouslySetInnerHTML={{ __html: excerpt }} /> */}
                 <div slot="content" dangerouslySetInnerHTML={{ __html: content }} />
