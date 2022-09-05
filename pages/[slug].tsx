@@ -6,7 +6,7 @@ import { find, findById } from '../repositories/articles';
 import styles from '../styles/Article.module.css';
 import { Layout } from '../components';
 import dateFormatter from '../utils/dateFormatter';
-import ArticleComponent from '../components/ArticleComponent/ArticleComponent';
+import Article from '../components/Article/Article';
 import AuthorCard from '../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../components/ArticleSpecsButtons/ArticleSpecsButtons';
 
@@ -58,7 +58,7 @@ const ArticlePage: FC<Props> = ({ article }) => {
                 <ArticleSpecsButtons content={article.content} />
 
                 <div className={styles.articleContent}>
-                    <ArticleComponent article={article} />
+                    <Article article={article} />
                 </div>
             </div>
         </Layout>

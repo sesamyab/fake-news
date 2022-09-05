@@ -13,7 +13,7 @@ const LoginButton = () => {
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <sesamy-login style={styleLogged}></sesamy-login>
-            <sesamy-logout></sesamy-logout>
+            <sesamy-logout style={loggoutStyle}></sesamy-logout>
         </div>
     );
 };
