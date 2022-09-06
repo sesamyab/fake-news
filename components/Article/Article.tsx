@@ -6,7 +6,7 @@ interface Props {
 }
 
 function Article({ article }: Props) {
-    const { price, description, image, title } = article;
+    const { price, description, image, title, slug } = article;
 
     return (
         <>
@@ -17,6 +17,7 @@ function Article({ article }: Props) {
                 <meta property="sesamy:image" content={image} />
                 <meta property="sesamy:title" content={title} />
                 <meta property="sesamy:client-id" content="sesamy" />
+                <meta property="sesamy:publisher-content-id" content={slug} />
             </Head>
 
             <ArticleContent article={article} />
