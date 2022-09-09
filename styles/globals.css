@@ -157,6 +157,7 @@ sesamy-content-container {
 }
 
 sesamy-button {
+    --font-family: 'Public Sans', Arial, sans-serif;
     --color: #ffffff;
     --background: #000000;
     --background-hover: #88aace;
@@ -166,9 +167,14 @@ sesamy-button {
 }
 
 sesamy-login {
-    --primary-color: #88aace;
-    --button-padding: 12px 20px;
+    --font-family: 'Public Sans', Arial, sans-serif;
     --color: #ffffff;
+    --background: #000000;
+    --background-hover: #88aace;
+    --border-radius: 50px;
+    --padding: 12px 20px;
+    --font-size: 16px;
+    --user-font-family: 'Public Sans', Arial, sans-serif;
 }
 
 sesamy-content-container {
