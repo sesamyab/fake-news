@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { productUrlTest } from '../../constants';
+import { accessApiBaseUrl, productUrlTest } from '../../constants';
 import { hasPass, hasPublicContent, hasServerSideContent, showExcerpt } from '../../utils/article';
 import OneTimePaymentButton from '../Button/OneTimePaymentButton';
 import SubscriptionButton from '../Button/SubscriptionButton';
@@ -24,7 +24,9 @@ function AnnoyingButton({ article }: Props) {
     };
     const contentContainerProps = {
         'publisher-content-id': id.toString(),
-        'access-url': hasServerSideContent(id) ? `/api/access/${slug}` : undefined,
+        'access-url': hasServerSideContent(id)
+            ? `${accessApiBaseUrl}/api/access/${slug}`
+            : undefined,
         // If you want to test with an api on a separate domain (CORS...) you can bounce it via ngrok
         // access-url={`https://344f-2-136-241-70.eu.ngrok.io/api/access/${slug}`}
     };
