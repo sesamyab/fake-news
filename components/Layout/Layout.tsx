@@ -53,6 +53,11 @@ interface SesamyLoginProps
     variant?: Variant.Logout | Variant.Picture | Variant.SesamyText;
 }
 
+interface SesamyProfileProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    'manage-subscriptions'?: boolean;
+}
+
 interface SesamyLogoutProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {}
 
@@ -79,11 +84,12 @@ declare global {
             'sesamy-content-listing': ContentListingProps;
             'sesamy-login': SesamyLoginProps;
             'sesamy-logout': SesamyLogoutProps;
-            'sesamy-profile': React.DetailedHTMLProps<
+            'sesamy-profile': SesamyProfileProps;
+            'sesamy-entitlements': React.DetailedHTMLProps<
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
             >;
-            'sesamy-entitlements': React.DetailedHTMLProps<
+            'sesamy-transactions': React.DetailedHTMLProps<
                 React.HTMLAttributes<HTMLElement>,
                 HTMLElement
             >;

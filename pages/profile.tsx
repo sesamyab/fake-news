@@ -8,8 +8,9 @@ const SubscriptionPage: FC = () => {
     return (
         <Layout>
             <div style={{ maxWidth: '850px', margin: 'auto' }}>
-                <sesamy-profile></sesamy-profile>
+                <sesamy-profile manage-subscriptions></sesamy-profile>
                 <sesamy-entitlements></sesamy-entitlements>
+                <sesamy-transactions></sesamy-transactions>
             </div>
             <Script defer src={`${webComponentBaseUrl}/sesamy-bundle.min.js`} />
         </Layout>
