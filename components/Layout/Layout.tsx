@@ -71,8 +71,13 @@ interface SesamyContentDataProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     id: string;
     'item-src'?: string;
+    currency?: string;
+    decription?: string;
+    image?: string;
+    price?: string;
     pass?: string;
     public?: boolean;
+    title?: string;
 }
 
 declare global {

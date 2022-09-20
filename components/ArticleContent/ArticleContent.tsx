@@ -14,7 +14,7 @@ function AnnoyingButton({ article }: Props) {
     const { id, content, price, description, image, title, slug, excerpt } = article;
     const contentDataProps = {
         id: id.toString(),
-        price,
+        price: article.price ? article.price.toString() : undefined,
         title,
         description,
         image,
