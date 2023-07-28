@@ -10,6 +10,7 @@ import SSRArticle from '../../components/Article/SSRArticle';
 import AuthorCard from '../../components/AuthorCard/AuthorCard';
 import ArticleSpecsButtons from '../../components/ArticleSpecsButtons/ArticleSpecsButtons';
 import { authorize } from '../../utils/authorize';
+import { productUrlTest } from '../../constants';
 
 interface Props {
     article: Article | null;
@@ -85,13 +86,17 @@ export const getServerSideProps: GetServerSideProps = async ({ params, req, quer
     }
 
     let unlocked = false;
+    const articleUrl = productUrlTest + req.url?.replace('_next/data/development/', '');
 
     // Check if url is signed
     if (ss) {
+        console.log('ss: ' + ss);
         try {
-            await authorize(req.url!, [req.url!]);
+            console.log('pre auth: ' + articleUrl);
+            await authorize(articleUrl, [articleUrl]);
             unlocked = true;
         } catch (err) {
+            console.log('failed to auth');
             // Failed to authorize
         }
     }

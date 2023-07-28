@@ -24,8 +24,14 @@ async function verifySignature(signedUrl: string) {
     if (!publicKey) {
         publicKey = await getPublicKey();
     }
-
     const [url, signature] = signedUrl.split('&ss=');
+    if (!signature) {
+        throw new Error('Signature not valid');
+    }
+
+    console.log('url: ' + url)
+    console.log('signature: ' + signature)
+
     if (!verify('RSA-SHA256', Buffer.from(url), publicKey, Buffer.from(signature, 'base64'))) {
         throw new Error('Signature not valid');
     }
@@ -42,5 +48,6 @@ async function verifyArticleOrPass(signedUrl: string, permissions: string[]) {
 
 export async function authorize(signedUrl: string, permissions: string[]) {
     await verifySignature(signedUrl);
+    console.log('signature verified')
     await verifyArticleOrPass(signedUrl, permissions);
 }
