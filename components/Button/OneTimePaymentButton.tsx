@@ -7,6 +7,7 @@ function OneTimePaymentButton({ id }: OneTimePaymentButtonProps) {
         <sesamy-button
             publisher-content-id={id}
             currency={'SEK'}
+            checkout-version={'2'}
             style={{
                 display: 'flex',
                 justifyContent: 'center',

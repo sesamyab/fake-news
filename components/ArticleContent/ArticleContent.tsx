@@ -10,7 +10,7 @@ interface Props {
     article: Article;
 }
 
-function AnnoyingButton({ article }: Props) {
+function ArticleContent({ article }: Props) {
     const { id, content, price, description, image, title, slug, excerpt } = article;
     const contentDataProps = {
         id: id.toString(),
@@ -50,4 +50,4 @@ function AnnoyingButton({ article }: Props) {
     );
 }
 
-export default AnnoyingButton;
+export default ArticleContent;
