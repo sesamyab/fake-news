@@ -17,7 +17,6 @@ async function getPublicKey() {
     const jwks = await fetchPublicKey();
 
     const pemKey = jwkToPem(jwks);
-    console.log('pem key: ' + pemKey)
     return createPublicKey(pemKey);
 }
 
@@ -30,10 +29,7 @@ async function verifySignature(signedUrl: string) {
         throw new Error('Signature not valid');
     }
 
-    console.log('url: ' + url)
-    console.log('signature: ' + signature)
-
-    if (!verify('RSA-SHA256', Buffer.from(url), publicKey, Buffer.from(signature, 'base64'))) {
+    if (!verify('RSA-SHA256', Buffer.from(url), publicKey, Buffer.from(decodeURIComponent(signature), 'base64'))) {
         throw new Error('Signature not valid');
     }
 }
@@ -49,6 +45,5 @@ async function verifyArticleOrPass(signedUrl: string, permissions: string[]) {
 
 export async function authorize(signedUrl: string, permissions: string[]) {
     await verifySignature(signedUrl);
-    console.log('signature verified')
-    // await verifyArticleOrPass(signedUrl, permissions);
+    await verifyArticleOrPass(signedUrl, permissions);
 }

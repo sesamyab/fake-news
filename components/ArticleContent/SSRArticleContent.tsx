@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { productUrlTest } from '../../constants';
-import { getServerSideProps } from '../../pages/401';
-import { hasPass, hasPublicContent, hasServerSideContent } from '../../utils/article';
 import OneTimePaymentButton from '../Button/OneTimePaymentButton';
 import SubscriptionButton from '../Button/SubscriptionButton';
 import LockedContentContainer from '../LockedContentContainer/LockedContentContainer';
