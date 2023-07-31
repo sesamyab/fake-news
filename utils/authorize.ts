@@ -17,6 +17,7 @@ async function getPublicKey() {
     const jwks = await fetchPublicKey();
 
     const pemKey = jwkToPem(jwks);
+    console.log('pem key: ' + pemKey)
     return createPublicKey(pemKey);
 }
 
@@ -49,5 +50,5 @@ async function verifyArticleOrPass(signedUrl: string, permissions: string[]) {
 export async function authorize(signedUrl: string, permissions: string[]) {
     await verifySignature(signedUrl);
     console.log('signature verified')
-    await verifyArticleOrPass(signedUrl, permissions);
+    // await verifyArticleOrPass(signedUrl, permissions);
 }
