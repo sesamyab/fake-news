@@ -69,7 +69,7 @@ const SSRArticlePage: FC<Props> = ({ article, unlocked }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params, req, query }) => {
-    const { ss } = query;
+    const { token } = query;
 
     if (!params) {
         return {
@@ -89,14 +89,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params, req, quer
     const articleUrl = productUrlTest + req.url?.replace('_next/data/development/', '');
 
     // Check if url is signed
-    if (ss) {
-        console.log('ss: ' + ss);
+    if (token) {
         try {
-            console.log('pre auth: ' + articleUrl);
-            await authorize(articleUrl, [articleUrl]);
+            await authorize(articleUrl, [articleUrl.split('?')[0]]);
             unlocked = true;
-        } catch (err) {
-            console.log('failed to auth');
+        } catch (err: any) {
+            console.log('failed to auth: ' + err.message);
             // Failed to authorize
         }
     }

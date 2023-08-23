@@ -1,5 +1,6 @@
 import { verify, createPublicKey, KeyObject } from 'crypto';
 import jwkToPem from 'jwk-to-pem';
+import jwt from 'jsonwebtoken';
 
 let publicKey: KeyObject;
 
@@ -20,30 +21,26 @@ async function getPublicKey() {
     return createPublicKey(pemKey);
 }
 
-async function verifySignature(signedUrl: string) {
+async function verifySignature(signedUrl: string, permissions: string[]) {
     if (!publicKey) {
         publicKey = await getPublicKey();
     }
-    const [url, signature] = signedUrl.split('&ss=');
-    if (!signature) {
+
+    const signedURL = new URL(signedUrl);
+    const token = signedURL.searchParams.get('token');
+    if (!token) {
         throw new Error('Signature not valid');
     }
 
-    if (!verify('RSA-SHA256', Buffer.from(url), publicKey, Buffer.from(decodeURIComponent(signature), 'base64'))) {
-        throw new Error('Signature not valid');
-    }
-}
+    const payload: any = jwt.verify(token, publicKey);
 
-async function verifyArticleOrPass(signedUrl: string, permissions: string[]) {
-    const url = new URL(signedUrl);
+    console.log('token: ' + JSON.stringify(payload));
 
-    // Ignore domain to make testing easier
-    if (!permissions.some((permission) => permission.includes(url.pathname))) {
+    if (!permissions.some((permission) => permission === payload.url)) {
         throw new Error('No matching permission');
     }
 }
 
 export async function authorize(signedUrl: string, permissions: string[]) {
-    await verifySignature(signedUrl);
-    await verifyArticleOrPass(signedUrl, permissions);
+    await verifySignature(signedUrl, permissions);
 }
