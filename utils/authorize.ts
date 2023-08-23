@@ -34,9 +34,12 @@ async function verifySignature(signedUrl: string, permissions: string[]) {
 
     const payload: any = jwt.verify(token, publicKey);
 
-    console.log('token: ' + JSON.stringify(payload));
-
-    if (!permissions.some((permission) => permission === payload.url)) {
+    if (
+        !permissions.some((permission) => {
+            console.log(payload.url);
+            return new URL(permission).pathname === new URL(payload.url).pathname;
+        })
+    ) {
         throw new Error('No matching permission');
     }
 }
