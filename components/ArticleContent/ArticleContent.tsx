@@ -10,7 +10,7 @@ interface Props {
     article: Article;
 }
 
-function AnnoyingButton({ article }: Props) {
+function ArticleContent({ article }: Props) {
     const { id, content, price, description, image, title, slug, excerpt } = article;
     const contentDataProps = {
         id: id.toString(),
@@ -27,6 +27,8 @@ function AnnoyingButton({ article }: Props) {
         'access-url': hasServerSideContent(id) ? `/api/access/${slug}` : undefined,
         // If you want to test with an api on a separate domain (CORS...) you can bounce it via ngrok
         // access-url={`https://344f-2-136-241-70.eu.ngrok.io/api/access/${slug}`}
+        'item-src': `${productUrlTest}/${article.slug}`,
+        'lock-mode': 'signedUrl',
     };
 
     return (
@@ -50,4 +52,4 @@ function AnnoyingButton({ article }: Props) {
     );
 }
 
-export default AnnoyingButton;
+export default ArticleContent;
