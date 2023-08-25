@@ -1,11 +1,12 @@
-import { verify, createPublicKey, KeyObject } from 'crypto';
+import { createPublicKey, KeyObject } from 'crypto';
 import jwkToPem from 'jwk-to-pem';
 import jwt from 'jsonwebtoken';
+import { publicKeyUrl } from '../constants';
 
 let publicKey: KeyObject;
 
 async function fetchPublicKey() {
-    const response = await fetch('https://assets.sesamy.dev/vault-jwks.json');
+    const response = await fetch(publicKeyUrl);
 
     if (!response.ok) {
         throw new Error('Failed to fetch public key');
